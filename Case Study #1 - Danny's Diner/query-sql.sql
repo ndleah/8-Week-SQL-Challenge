@@ -1,5 +1,3 @@
-SELECT * FROM dannys_diner.members;
-select * from dannys_diner.sales;
 /* --------------------
    Case Study Questions
    --------------------*/
