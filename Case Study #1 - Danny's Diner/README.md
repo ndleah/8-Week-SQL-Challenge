@@ -6,7 +6,17 @@
 
 # Case Study #1 - Danny's Diner
 <p align="center">
-<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-1.png" width=60% height=60%>
+<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-1.png" width=50% height=50%>
+
+## Table Of Contents
+* [Problem Statement](#problem-statement)
+* [Dataset](#dataset)
+* [Case Study Questions](#case-study-questions)
+* [Solution](#solutions)
+* [Limitations](#limitations)
+  
+  
+ <br /> 
 
 ## Problem Statement
 
