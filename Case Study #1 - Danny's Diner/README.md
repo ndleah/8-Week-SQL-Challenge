@@ -283,7 +283,9 @@ FROM dannys_diner.sales
 
 ### **Q6. Which item was purchased first by the customer after they became a member?**
 <span style="color:grey"> Access [**here**](#question-6-which-item-was-purchased-first-by-the-customer-after-they-became-a-member) to view the limitations of this question</span>
-<span style="color:red"> **Note:** In this question, the orders made during the join date are counted within the first order as well</span>
+<span style="color:red"> 
+
+**Note:** In this question, the orders made during the join date are counted within the first order as well</span>
 
 ```sql
 WITH cte_first_after_mem AS (
