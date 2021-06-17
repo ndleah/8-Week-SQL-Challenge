@@ -39,7 +39,6 @@ Danny’s Diner is in need of your assistance to help the restaurant stay afloat
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-1/).
 
----
 
 ## View the entire solution for this part [**here**](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner) or
 [![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_1-971901?style=for-the-badge&logo=GITHUB)](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner)
