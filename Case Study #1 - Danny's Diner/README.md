@@ -67,7 +67,7 @@ The final members table captures the ```join_date``` when a ```customer_id``` jo
 
 ## Case Study Questions
 <p align="center">
-<img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=100% height=100%>
+<img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
 
 1. What is the total amount each customer spent at the restaurant?
 2. How many days has each customer visited the restaurant?
@@ -410,7 +410,7 @@ If we combine the condition from [**question 9**](#q9-if-each-1-spent-equates-to
 
 I have created a timeline as illustration for wheareas we apply the conditions:
 <p align="center">
-<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/timeline.png" width=80% height=80%>
+<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/timeline.png" width=100% height=100%>
 
 ### **Step 1:**
 
