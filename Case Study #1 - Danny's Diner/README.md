@@ -610,7 +610,7 @@ The limition of this question includes:
 
 The limition of this question includes:
 
-* Since it is not clear that those orders made during the **join_date** was <ins>**after**</ins> or <ins>**before**</ins> the customer joined in the membership program since the lack of **```order_date```** and **```join_date```** information (does not include details of the purchase time), I will assume these orders were made after the customer had already joined the program. 
+* Since it is not clear that those orders made during the **join_date** was <ins>**after**</ins> or <ins>**before**</ins> the customer joined in the membership program because of the lack of **```order_date```** and **```join_date```** information (does not include details of the purchase time), I will assume these orders were made after the customer had already joined the program. 
 ---
 
 
