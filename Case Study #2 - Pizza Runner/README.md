@@ -9,13 +9,14 @@
 <img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=50% height=50%>
 
 ## Table Of Contents
-* [Problem Statement](#problem-statement)
-* [Dataset](#dataset)
-* [Case Study Questions](#case-study-questions)
-* [Solution](#solutions)
-* [Limitations](#limitations)
-  
-  
+  - [Problem Statement](#problem-statement)
+  - [Dataset](#dataset)
+  - [Case Study Questions](#case-study-questions)
+    - [Pizza Metrics](#pizza-metrics)
+    - [Runner and Customer Experience](#runner-and-customer-experience)
+    - [Ingredient Optimisation](#ingredient-optimisation)
+    - [Pricing and Ratings](#pricing-and-ratings)
+  - [Solutions](#solutions)
  <br /> 
 
 ## Problem Statement
@@ -135,18 +136,12 @@ This table contains all of the **```topping_name```** values with their correspo
 <img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
 
 This case study has LOTS of questions - they are broken up by area of focus including:
+- Pizza Metrics
+- Runner and Customer Experience
+- Ingredient Optimisation
+- Pricing and Ratings
 
-- [8-Week SQL Challenge](#8-week-sql-challenge)
-- [Case Study #2 - Pizza Runner](#case-study-2---pizza-runner)
-  - [Table Of Contents](#table-of-contents)
-  - [Problem Statement](#problem-statement)
-  - [Dataset](#dataset)
-  - [Case Study Questions](#case-study-questions)
-    - [**Pizza Metrics**](#pizza-metrics)
-    - [**Runner and Customer Experience**](#runner-and-customer-experience)
-    - [**Ingredient Optimisation**](#ingredient-optimisation)
-    - [**Pricing and Ratings**](#pricing-and-ratings)
-  - [Solutions](#solutions)
+---
 
 ### **Pizza Metrics**
 1. How many pizzas were ordered?
