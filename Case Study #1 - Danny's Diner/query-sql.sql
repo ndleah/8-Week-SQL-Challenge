@@ -23,13 +23,14 @@ JOIN dannys_diner.menu
 GROUP BY customer_id
 ORDER BY customer_id;
 
-/*Result:
-| customer_id | total_spent |
-| ----------- | ----------- |
-| A           | 76          |
-| B           | 74          |
-| C           | 36          |
-*/
+--Result:
++──────────────+──────────────+
+| customer_id  | total_spent  |
++──────────────+──────────────+
+| A            | 76           |
+| B            | 74           |
+| C            | 36           |
++──────────────+──────────────+
 
 -- 2. How many days has each customer visited the restaurant?
 SELECT
@@ -38,13 +39,14 @@ SELECT
 FROM dannys_diner.sales
 GROUP BY customer_id;
 
-/*Result:
-|customer_id|visited_days|
-|-----------|------------|
-|A          |4           |
-|B          |6           |
-|C          |2           |
-*/
+--Result:
++──────────────+───────────────+
+| customer_id  | visited_days  |
++──────────────+───────────────+
+| A            | 4             |
+| B            | 6             |
+| C            | 2             |
++──────────────+───────────────+
 
 -- 3. What was the first item from the menu purchased by each customer?
 WITH cte_order AS (
@@ -64,13 +66,14 @@ WITH cte_order AS (
 SELECT * FROM cte_order
 WHERE item_order = 1;
 
-/*Result:
-| customer_id | product_name | item_order |
-| ----------- | ------------ | ---------- |
-| A           | sushi        | 1          |
-| B           | curry        | 1          |
-| C           | ramen        | 1          |
-*/
+--Result:
++──────────────+───────────────+─────────────+
+| customer_id  | product_name  | item_order  |
++──────────────+───────────────+─────────────+
+| A            | sushi         | 1           |
+| B            | curry         | 1           |
+| C            | ramen         | 1           |
++──────────────+───────────────+─────────────+
 
 -- 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
 SELECT
@@ -84,11 +87,12 @@ GROUP BY
 ORDER BY order_count DESC
 LIMIT 1;
 
-/*Result:
-|product_id|product_name|order_count|
-|----------|------------|-----------|
-|3         |ramen       |8          |
-*/
+--Result:
++─────────────+───────────────+──────────────+
+| product_id  | product_name  | order_count  |
++─────────────+───────────────+──────────────+
+| 3           | ramen         | 8            |
++─────────────+───────────────+──────────────+
 
 -- 5. Which item was the most popular for each customer?
 WITH cte_order_count AS (
@@ -115,15 +119,17 @@ cte_popular_rank AS (
 SELECT * FROM cte_popular_rank
 WHERE rank = 1;
 
-/* Result:
-| customer_id | product_name | order_count | rank |
-| ----------- | ------------ | ----------- | ---- |
-| A           | ramen        | 3           | 1    |
-| B           | ramen        | 2           | 1    |
-| B           | curry        | 2           | 1    |
-| B           | sushi        | 2           | 1    |
-| C           | ramen        | 3           | 1    |
-*/
+--Result:
++──────────────+───────────────+──────────────+───────+
+| customer_id  | product_name  | order_count  | rank  |
++──────────────+───────────────+──────────────+───────+
+| A            | ramen         | 3            | 1     |
+| B            | ramen         | 2            | 1     |
+| B            | curry         | 2            | 1     |
+| B            | sushi         | 2            | 1     |
+| C            | ramen         | 3            | 1     |
++──────────────+───────────────+──────────────+───────+
+
 
 -- Before answering question 6-10, I created a membership_validation table to validate only those customers joining in the membership program:
 DROP TABLE IF EXISTS membership_validation;
@@ -164,12 +170,13 @@ WITH cte_first_after_mem AS (
 SELECT * FROM cte_first_after_mem
 WHERE purchase_order = 1;
 
-/*Result:
-| customer_id | product_name | order_date               | purchase_order |
-| ----------- | ------------ | ------------------------ | -------------- |
-| A           | curry        | 2021-01-07T00:00:00.000Z | 1              |
-| B           | sushi        | 2021-01-11T00:00:00.000Z | 1              |
-*/
+--Result:
++──────────────+───────────────+───────────────────────────+─────────────────+
+| customer_id  | product_name  | order_date                | purchase_order  |
++──────────────+───────────────+───────────────────────────+─────────────────+
+| A            | curry         | 2021-01-07T00:00:00.000Z  | 1               |
+| B            | sushi         | 2021-01-11T00:00:00.000Z  | 1               |
++──────────────+───────────────+───────────────────────────+─────────────────+
 
 -- 7. Which item was purchased just before the customer became a member?
 WITH cte_last_before_mem AS (
@@ -187,13 +194,15 @@ SELECT * FROM cte_last_before_mem
 --since we used the ORDER BY DESC in the query above, the order 1 would mean the last date before the customer join in the membership
 WHERE purchase_order = 1;
 
-/* Result:
-| customer_id | product_name | order_date               | purchase_order |
-| ----------- | ------------ | ------------------------ | -------------- |
-| A           | sushi        | 2021-01-01T00:00:00.000Z | 1              |
-| A           | curry        | 2021-01-01T00:00:00.000Z | 1              |
-| B           | sushi        | 2021-01-04T00:00:00.000Z | 1              |
-*/
+--Result:
++──────────────+───────────────+───────────────────────────+─────────────────+
+| customer_id  | product_name  | order_date                | purchase_order  |
++──────────────+───────────────+───────────────────────────+─────────────────+
+| A            | sushi         | 2021-01-01T00:00:00.000Z  | 1               |
+| A            | curry         | 2021-01-01T00:00:00.000Z  | 1               |
+| B            | sushi         | 2021-01-04T00:00:00.000Z  | 1               |
++──────────────+───────────────+───────────────────────────+─────────────────+
+
 -- 8. What is the total items and amount spent for each member before they became a member?
 WITH cte_spent_before_mem AS (
   SELECT 
@@ -211,13 +220,13 @@ FROM cte_spent_before_mem
 GROUP BY customer_id
 ORDER BY customer_id;
 
-/*Result:
-| customer_id | total_spent | total_items |
-| ----------- | ----------- | ----------- |
-| A           | 25          | 2           |
-| B           | 40          | 3           |
-
-*/
+--Result:
++──────────────+──────────────+──────────────+
+| customer_id  | total_spent  | total_items  |
++──────────────+──────────────+──────────────+
+| A            | 25           | 2            |
+| B            | 40           | 3            |
++──────────────+──────────────+──────────────+
 
 -- 9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 SELECT
@@ -232,13 +241,13 @@ FROM membership_validation
 GROUP BY customer_id
 ORDER BY customer_id;
 
-/*Result:
-
-| customer_id | total_points |
-| ----------- | ------------ |
-| A           | 860          |
-| B           | 940          |
-*/
+--Result:
++──────────────+───────────────+
+| customer_id  | total_points  |
++──────────────+───────────────+
+| A            | 860           |
+| B            | 940           |
++──────────────+───────────────+
 
 -- 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 --create temp table for days validation within the first week membership
@@ -271,20 +280,21 @@ WHERE order_date < '2021-02-01';
 --inspect the table result
 SELECT * FROM membership_first_week_validation;
 
-/*Result:
-| customer_id | order_date               | product_name | price | order_count | within_first_week |
-| ----------- | ------------------------ | ------------ | ----- | ----------- | ----------------- |
-| A           | 2021-01-01T00:00:00.000Z | curry        | 15    | 1           |                   |
-| A           | 2021-01-01T00:00:00.000Z | sushi        | 10    | 1           |                   |
-| A           | 2021-01-07T00:00:00.000Z | curry        | 15    | 1           | X                 |
-| A           | 2021-01-10T00:00:00.000Z | ramen        | 12    | 1           | X                 |
-| A           | 2021-01-11T00:00:00.000Z | ramen        | 12    | 2           | X                 |
-| B           | 2021-01-01T00:00:00.000Z | curry        | 15    | 1           |                   |
-| B           | 2021-01-02T00:00:00.000Z | curry        | 15    | 1           |                   |
-| B           | 2021-01-04T00:00:00.000Z | sushi        | 10    | 1           |                   |
-| B           | 2021-01-11T00:00:00.000Z | sushi        | 10    | 1           | X                 |
-| B           | 2021-01-16T00:00:00.000Z | ramen        | 12    | 1           |                   |
-*/
+--Result:
++──────────────+───────────────────────────+───────────────+────────+──────────────+────────────────────+
+| customer_id  | order_date                | product_name  | price  | order_count  | within_first_week  |
++──────────────+───────────────────────────+───────────────+────────+──────────────+────────────────────+
+| A            | 2021-01-01T00:00:00.000Z  | curry         | 15     | 1            |                    |
+| A            | 2021-01-01T00:00:00.000Z  | sushi         | 10     | 1            |                    |
+| A            | 2021-01-07T00:00:00.000Z  | curry         | 15     | 1            | X                  |
+| A            | 2021-01-10T00:00:00.000Z  | ramen         | 12     | 1            | X                  |
+| A            | 2021-01-11T00:00:00.000Z  | ramen         | 12     | 2            | X                  |
+| B            | 2021-01-01T00:00:00.000Z  | curry         | 15     | 1            |                    |
+| B            | 2021-01-02T00:00:00.000Z  | curry         | 15     | 1            |                    |
+| B            | 2021-01-04T00:00:00.000Z  | sushi         | 10     | 1            |                    |
+| B            | 2021-01-11T00:00:00.000Z  | sushi         | 10     | 1            | X                  |
+| B            | 2021-01-16T00:00:00.000Z  | ramen         | 12     | 1            |                    |
++──────────────+───────────────────────────+───────────────+────────+──────────────+────────────────────+
 
 --create temp table for points calculation only in the first week of membership
 DROP TABLE IF EXISTS membership_first_week_points;
@@ -306,12 +316,13 @@ GROUP BY customer_id;
 --inspect table results
 SELECT * FROM membership_first_week_points;
 
-/*Result:
-| customer_id | total_points |
-| ----------- | ------------ |
-| A           | 1020         |
-| B           | 200          |
-*/
+--Result:
++──────────────+───────────────+
+| customer_id  | total_points  |
++──────────────+───────────────+
+| A            | 1020          |
+| B            | 200           |
++──────────────+───────────────+
 
 --create temp table for points calculation excluded the first week membership (before membership + after the first week membership)
 DROP TABLE IF EXISTS membership_non_first_week_points;
@@ -333,12 +344,14 @@ GROUP BY customer_id;
 --inspect table results
 SELECT * FROM membership_non_first_week_points;
 
-/*Result:
-| customer_id | total_points |
-| ----------- | ------------ |
-| A           | 350          |
-| B           | 620          |
-*/
+--Result:
++──────────────+───────────────+
+| customer_id  | total_points  |
++──────────────+───────────────+
+| A            | 350           |
+| B            | 620           |
++──────────────+───────────────+
+
 
 --perform table union to aggregate our points value from both point calculation tables, then use SUM aggregate function to get our result
 WITH cte_union AS (
@@ -353,9 +366,10 @@ FROM cte_union
 GROUP BY customer_id
 ORDER BY customer_id;
 
-/*Result:
-| customer_id | SUM          |
-| ----------- | ------------ |
-| A           | 1370         |
-| B           | 820          |
-*/
+--Result:
++──────────────+──────+
+| customer_id  | SUM  |
++──────────────+──────+
+| A            | 1370 |
+| B            | 820  |
++──────────────+──────+
