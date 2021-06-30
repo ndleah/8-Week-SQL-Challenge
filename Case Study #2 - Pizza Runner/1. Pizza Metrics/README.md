@@ -43,6 +43,7 @@ FROM pizza_runner.customer_orders;
 
 **Answer:**
 
+
 ---
 
 ### **Q2. How many unique customer orders were made?**
@@ -55,6 +56,9 @@ FROM pizza_runner.customer_orders;
 |order_count|
 |-----------|
 |10         |
+
+**Answer**:
+
 
 ---
 
@@ -76,6 +80,10 @@ ORDER BY successful_orders DESC;
 | 1         | 4                 |
 | 2         | 3                 |
 | 3         | 1                 |
+
+**Answer:**
+
+---
 
 ### **Q4. How many of each type of pizza was delivered?**
 ```SQL
@@ -120,6 +128,8 @@ ORDER BY pizza_names.pizza_name;
 | Meatlovers | 9                |
 | Vegetarian | 3                |
 
+
+**Answer**:
 ---
 
 ### **Q5. How many Vegetarian and Meatlovers were ordered by each customer?**
@@ -139,6 +149,9 @@ GROUP BY customer_id;
 | 104         | 3           | 0          |
 | 105         | 0           | 1          |
 | 102         | 2           | 1          |
+
+**Answer:**
+
 
 ---
 
@@ -162,6 +175,10 @@ FROM (
 |-----------|
 | 3         |
 
+**Answer:**
+
+
+---
 
 ### **Q7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?**
 ```SQL
@@ -187,6 +204,9 @@ ORDER BY customer_id;
 | 104         | 2       | 2         |
 | 105         | 1       | 1         |
 
+**Answer:**
+
+
 ---
 
 ### **Q8. How many pizzas were delivered that had both exclusions and extras?**
@@ -204,6 +224,9 @@ WHERE runner_orders.cancellation IS NULL
 |-------------|
 | 1           |
 
+**Answer:**
+
+
 ---
 
 ### **Q9. What was the total volume of pizzas ordered for each hour of the day?**
@@ -216,7 +239,21 @@ WHERE order_time IS NOT NULL
 GROUP BY hour_of_day
 ORDER BY hour_of_day;
 ```
+**Result:**
+| hour_of_day | pizza_count |
+|-------------|-------------|
+| 11          | 1           |
+| 12          | 2           |
+| 13          | 3           |
+| 18          | 3           |
+| 19          | 1           |
+| 21          | 3           |
+| 23          | 1           |
 
+**Answer:**
+
+
+---
 
 ### **Q10. What was the volume of orders for each day of the week?**
 ```SQL
@@ -229,3 +266,17 @@ GROUP BY
   DATE_PART('dow', order_time)
 ORDER BY day_of_week;
 ```
+
+**Result:**
+| day_of_week | pizza_count |
+|-------------|-------------|
+| Friday      | 1           |
+| Saturday    | 5           |
+| Thursday    | 3           |
+| Wednesday   | 5           |
+
+**Answer:**
+
+
+---
+<p>&copy; 2021 Leah Nguyen</p>

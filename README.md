@@ -16,9 +16,9 @@
   <img width="250" height="250" src="https://s3.amazonaws.com/thinkific-import/357412/n0nS0vA3RmOtzsH99jyf_Data_With_Danny_Round_Logo_png">
 </p>
 
-### This repository contains all of my code submissions for the **#8WeekSQLChallenge**! 
-
-### All case study's requirements and resources are available on the challenge [website](https://8weeksqlchallenge.com).
+> This repository contains all of my code submissions for the **#8WeekSQLChallenge**! 
+> 
+> All case study's requirements and resources are available on the challenge [website](https://8weeksqlchallenge.com).
 
 ---
 
@@ -58,7 +58,8 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-2/).
 
-## *[UPDATING]*
+## View the entire solution for this part [**here**](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner) or
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_2-971901?style=for-the-badge&logo=GITHUB)](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner)
 
 ---
 

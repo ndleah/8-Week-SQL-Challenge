@@ -184,7 +184,18 @@ WHERE order_time IS NOT NULL
 GROUP BY hour_of_day
 ORDER BY hour_of_day;
 
-
+--Result:
++──────────────+──────────────+
+| hour_of_day  | pizza_count  |
++──────────────+──────────────+
+| 11           | 1            |
+| 12           | 2            |
+| 13           | 3            |
+| 18           | 3            |
+| 19           | 1            |
+| 21           | 3            |
+| 23           | 1            |
++──────────────+──────────────+
 
 -- 10. What was the volume of orders for each day of the week?
 SELECT
@@ -195,3 +206,13 @@ GROUP BY
   day_of_week, 
   DATE_PART('dow', order_time)
 ORDER BY day_of_week;
+
+--Result:
++──────────────+──────────────+
+| day_of_week  | pizza_count  |
++──────────────+──────────────+
+| Friday       | 1            |
+| Saturday     | 5            |
+| Thursday     | 3            |
+| Wednesday    | 5            |
++──────────────+──────────────+

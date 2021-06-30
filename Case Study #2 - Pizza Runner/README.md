@@ -33,7 +33,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 ## Dataset
 Danny has shared with you 6 key datasets for this case study:
 
-* **Table 1: ```runners```**
+* ### **```runners```**
 
 The runners table shows the **```registration_date```** for each new runner.
 
@@ -47,7 +47,7 @@ The runners table shows the **```registration_date```** for each new runner.
 
  <br /> 
 
-* **Table 2: ```customer_orders```**
+* ### **```customer_orders```**
 
 Customer pizza orders are captured in the **```customer_orders```** table with 1 row for each individual pizza that is part of the order.
 
@@ -71,7 +71,7 @@ Customer pizza orders are captured in the **```customer_orders```** table with 1
 
  <br /> 
 
-* **Table 3: ```runner_orders```**
+* ### **```runner_orders```**
 
 After each orders are received through the system - they are assigned to a runner - however not all orders are fully completed and can be cancelled by the restaurant or the customer.
 
@@ -92,7 +92,7 @@ The pickup_time is the timestamp at which the runner arrives at the Pizza Runner
 
  <br /> 
 
-* **Table 4: ```pizza_names```**
+* ### **```pizza_names```**
 
 |pizza_id|pizza_name|
 |--------|----------|
@@ -101,7 +101,7 @@ The pickup_time is the timestamp at which the runner arrives at the Pizza Runner
 
  <br /> 
 
- * **Table 5: ```pizza_recipes```**
+ *  ### **```pizza_recipes```**
 
 Each **```pizza_id```** has a standard set of **```toppings```** which are used as part of the pizza recipe.
 
@@ -111,7 +111,7 @@ Each **```pizza_id```** has a standard set of **```toppings```** which are used 
 |2       |4, 6, 7, 9, 11, 12| 
  <br /> 
 
-  * **Table 6: ```pizza_toppings```**
+  *  ### **```pizza_toppings```**
 
 This table contains all of the **```topping_name```** values with their corresponding **```topping_id```** value.
 
@@ -144,7 +144,7 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 
 ---
 
-### **Pizza Metrics**
+### 1. **Pizza Metrics**
 1. How many pizzas were ordered?
 2. How many unique customer orders were made?
 3. How many successful orders were delivered by each runner?
@@ -156,7 +156,7 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 9. What was the total volume of pizzas ordered for each hour of the day?
 10. What was the volume of orders for each day of the week?
 
-### **Runner and Customer Experience**
+### 2. **Runner and Customer Experience**
 1. How many runners signed up for each 1 week period? (i.e. week starts **```2021-01-01```**)
 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
@@ -165,7 +165,7 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 7. What is the successful delivery percentage for each runner?
 
-### **Ingredient Optimisation**
+### 3. **Ingredient Optimisation**
 1. What are the standard ingredients for each pizza?
 2. What was the most commonly added extra?
 3. What was the most common exclusion?
@@ -179,7 +179,7 @@ This case study has LOTS of questions - they are broken up by area of focus incl
     * For example: ```"Meat Lovers: 2xBacon, Beef, ... , Salami"```
 6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
 
-### **Pricing and Ratings**
+### 4. **Pricing and Ratings**
 1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes - how much money has Pizza Runner made so far if there are no delivery fees?
 2. What if there was an additional $1 charge for any pizza extras?
 Add cheese is $1 extra

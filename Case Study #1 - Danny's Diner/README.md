@@ -28,7 +28,7 @@ Danny wants to use the data to answer a few simple questions about his customers
 ## Dataset
 Danny has shared with you 3 key datasets for this case study:
 
-* **```sales```**
+* ### **```sales```**
 
 The sales table captures all ```customer_id``` level purchases with an corresponding ```order_date``` and ```product_id``` information for when and what menu items were ordered.
 
@@ -52,7 +52,7 @@ The sales table captures all ```customer_id``` level purchases with an correspon
 
  <br /> 
 
-* **```menu```**
+* ### **```menu```**
 
 
 The menu table maps the ```product_id``` to the actual ```product_name``` and price of each menu item.
@@ -65,7 +65,7 @@ The menu table maps the ```product_id``` to the actual ```product_name``` and pr
 
  <br /> 
 
-* **```members```**
+* ### **```members```**
 
 The final members table captures the ```join_date``` when a ```customer_id``` joined the beta version of the Danny’s Diner loyalty program.
 
