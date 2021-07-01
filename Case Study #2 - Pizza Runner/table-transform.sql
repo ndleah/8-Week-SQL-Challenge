@@ -79,7 +79,6 @@ SET
     CASE WHEN cancellation = '' 
     OR cancellation = 'null' THEN NULL 
     ELSE cancellation END
-    
 RETURNING *;
 
 /*Result:

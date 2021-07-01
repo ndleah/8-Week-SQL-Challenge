@@ -2,7 +2,8 @@
 [![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/nduongthucanh?tab=repositories)
 [![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/nduongthucanh)
 
-# [8-Week SQL Challenge](https://8weeksqlchallenge.com)
+# [8-Week SQL Challenge](https://8weeksqlchallenge.com) <img src="https://s3.amazonaws.com/thinkific-import/357412/n0nS0vA3RmOtzsH99jyf_Data_With_Danny_Round_Logo_png" align="right" width="120" />
+
 <p align="center">
   <img src="https://forthebadge.com/images/badges/built-with-love.svg">
   <img src="https://forthebadge.com/images/badges/powered-by-coffee.svg">
@@ -10,10 +11,6 @@
 
 <p align="center">
   <img src="https://forthebadge.com/images/badges/check-it-out.svg">
-</p>
-
-<p align="center">
-  <img width="250" height="250" src="https://s3.amazonaws.com/thinkific-import/357412/n0nS0vA3RmOtzsH99jyf_Data_With_Danny_Round_Logo_png">
 </p>
 
 > This repository contains all of my code submissions for the **#8WeekSQLChallenge**! 
@@ -30,7 +27,7 @@
 
 ---
 
-## [Case Study #1 - Danny's Diner](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner)
+## Case Study #1 - Danny's Diner
 <p align="center">
   <img width=60% height=60%" src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/1.png">
 
@@ -96,6 +93,16 @@ This case study is all about calculating metrics, growth and helping the busines
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-4/).
 
 ## *[UPDATING]*
+
+# Contribution
+
+Contributions, issues, and feature requests are welcome!
+
+To contribute to Patronify, see the GitHub documentation on **[creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)**.
+
+# Support
+
+Give a ⭐️ if you like this project!
 ___________________________________
 
 <p>&copy; 2021 Leah Nguyen</p>
