@@ -1,8 +1,13 @@
 ![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
-[![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/nduongthucanh?tab=repositories)
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 [![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/nduongthucanh)
+[![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/nduongthucanh?tab=repositories)
 
 # [8-Week SQL Challenge](https://8weeksqlchallenge.com) <img src="https://s3.amazonaws.com/thinkific-import/357412/n0nS0vA3RmOtzsH99jyf_Data_With_Danny_Round_Logo_png" align="right" width="120" />
+
+> This repository contains all of my code submissions for the **#8WeekSQLChallenge**! 
+> 
+> All case study's requirements and resources are available on the challenge [website](https://8weeksqlchallenge.com).
 
 <p align="center">
   <img src="https://forthebadge.com/images/badges/built-with-love.svg">
@@ -13,21 +18,15 @@
   <img src="https://forthebadge.com/images/badges/check-it-out.svg">
 </p>
 
-> This repository contains all of my code submissions for the **#8WeekSQLChallenge**! 
-> 
-> All case study's requirements and resources are available on the challenge [website](https://8weeksqlchallenge.com).
+## 📕  Table Of Contents
+* [🍜 Case Study #1 - Danny's Diner](#-case-study-1---dannys-diner)
+* [🍕 Case Study #2 - Pizza Runner](#-case-study-2---pizza-runner)
+* [🥑 Case Study #3 - Foodie-Fi](#-case-study-3---foodie-fi)
+* [🪙 Case Study #4 - Data Bank](#-case-study-4---data-bank)
 
 ---
 
-## Table Of Contents
-* [Case Study #1 - Danny's Diner](#case-study-1---dannys-diner)
-* [Case Study #2 - Pizza Runner](#case-study-2---pizza-runner)
-* [Case Study #3 - Foodie-Fi](#case-study-3---foodie-fi)
-* [Case Study #4 - Data Bank](#case-study-4---data-bank)
-
----
-
-## Case Study #1 - Danny's Diner
+## 🍜 Case Study #1 - Danny's Diner
 <p align="center">
   <img width=60% height=60%" src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/1.png">
 
@@ -43,7 +42,7 @@ Danny’s Diner is in need of your assistance to help the restaurant stay afloat
 
 ---
 
-## Case Study #2 - Pizza Runner
+## 🍕 Case Study #2 - Pizza Runner
 <p align="center">
   <img width=60% height=60%" src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/2.png">
 
@@ -60,7 +59,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ---
 
-## Case Study #3 - Foodie-Fi
+## 🥑 Case Study #3 - Foodie-Fi
 <p align="center">
   <img width=60% height=60%" src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/3.png">
 
@@ -76,7 +75,7 @@ Danny created Foodie-Fi with a data driven mindset and wanted to ensure all futu
 
 ---
 
-## Case Study #4 - Data Bank
+## 🪙 Case Study #4 - Data Bank
 <p align="center">
   <img width=60% height=60%" src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/4.png">
 
@@ -94,13 +93,17 @@ This case study is all about calculating metrics, growth and helping the busines
 
 ## *[UPDATING]*
 
-# Contribution
+---
+
+## ✨ Contribution
 
 Contributions, issues, and feature requests are welcome!
 
 To contribute to Patronify, see the GitHub documentation on **[creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)**.
 
-# Support
+---
+
+## 👏 Support
 
 Give a ⭐️ if you like this project!
 ___________________________________

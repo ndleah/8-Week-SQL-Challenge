@@ -4,7 +4,7 @@
 
 # [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
 
-# Case Study #2 - Pizza Metrics
+# 🍕 Case Study #2 - Pizza Metrics
 <p align="center">
 <img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=50% height=50%>
 

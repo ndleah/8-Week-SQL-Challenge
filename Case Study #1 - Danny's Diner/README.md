@@ -1,31 +1,31 @@
+# [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge) 
 ![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
 [![View Main Folder](https://img.shields.io/badge/View-Main_Folder-971901?)](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
 [![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/nduongthucanh?tab=repositories)
 [![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/nduongthucanh)
 
-# [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
-
-# Case Study #1 - Danny's Diner
+# 🍜 Case Study #1 - Danny's Diner
 <p align="center">
 <img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-1.png" width=50% height=50%>
 
-## Table Of Contents
-* [Problem Statement](#problem-statement)
-* [Dataset](#dataset)
-* [Case Study Questions](#case-study-questions)
-* [Solution](#solutions)
-* [Limitations](#limitations)
+## 📕 Table Of Contents
+* 🛠️ [Problem Statement](#problem-statement)
+* 📂 [Dataset](#dataset)
+* 🧙‍♂️ [Case Study Questions](#case-study-questions)
+* 🚀 [Solutions](#solutions)
+* 🐋 [Limitations](#limitations)
   
-  
- <br /> 
+---
 
-## Problem Statement
+## 🛠️ Problem Statement
 
 Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
 
  <br /> 
 
-## Dataset
+---
+
+## 📂 Dataset
 Danny has shared with you 3 key datasets for this case study:
 
 * ### **```sales```**
@@ -76,7 +76,7 @@ The final members table captures the ```join_date``` when a ```customer_id``` jo
 
  <br /> 
 
-## Case Study Questions
+## 🧙‍♂️ Case Study Questions
 <p align="center">
 <img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
 
@@ -93,7 +93,7 @@ The final members table captures the ```join_date``` when a ```customer_id``` jo
 
  <br /> 
 
-## Solutions
+## 🚀 Solutions
 
 ### **Q1. What is the total amount each customer spent at the restaurant?**
 ```sql
@@ -144,7 +144,7 @@ GROUP BY customer_id;
 ---
 
 ### **Q3. What was the first item from the menu purchased by each customer?**
-<span style="color:grey"> Access [**here**](#question-3-what-was-the-first-item-from-the-menu-purchased-by-each-customer) to view the limitations of this question</span>
+> ⚠️ Access [**here**](#️-question-3-what-was-the-first-item-from-the-menu-purchased-by-each-customer) to view the limitations of this question
 
 
 ```sql
@@ -207,7 +207,7 @@ LIMIT 1;
 ---
 
 ### **Q5. Which item was the most popular for each customer?**
-<span style="color:grey"> Access [**here**](#question-5-which-item-was-the-most-popular-for-each-customer) to view the limitations of this question</span>
+> ⚠️ Access [**here**](#️-question-5-which-item-was-the-most-popular-for-each-customer) to view the limitations of this question
 ```sql
 WITH cte_order_count AS (
   SELECT
@@ -283,8 +283,7 @@ FROM dannys_diner.sales
 ---
 
 ### **Q6. Which item was purchased first by the customer after they became a member?**
-<span style="color:grey"> Access [**here**](#question-6-which-item-was-purchased-first-by-the-customer-after-they-became-a-member) to view the limitations of this question</span>
-<span style="color:red"> 
+> ⚠️ Access [**here**](#️-question-6-which-item-was-purchased-first-by-the-customer-after-they-became-a-member) to view the limitations of this question
 
 **Note:** In this question, the orders made during the join date are counted within the first order as well</span>
 
@@ -322,7 +321,7 @@ WHERE purchase_order = 1;
 ---
 
 ### **Q7. Which item was purchased just before the customer became a member?**
-<span style="color:grey"> Access [**here**](#question-7-which-item-was-purchased-just-before-the-customer-became-a-member) to view the limitations of this question</span>
+> ⚠️ Access [**here**](#️-question-7-which-item-was-purchased-just-before-the-customer-became-a-member) to view the limitations of this question
 
 ```sql
 WITH cte_last_before_mem AS (
@@ -415,7 +414,7 @@ ORDER BY customer_id;
 
 ### **Q10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
 
-<span style="color:grey"> Access [**here**](#question-10-in-the-first-week-after-a-customer-joins-the-program-including-their-join-date-they-earn-2x-points-on-all-items-not-just-sushi---how-many-points-do-customer-a-and-b-have-at-the-end-of-january) to view the limitations of this question</span>
+> ⚠️ Access [**here**](#️-question-10-in-the-first-week-after-a-customer-joins-the-program-including-their-join-date-they-earn-2x-points-on-all-items-not-just-sushi---how-many-points-do-customer-a-and-b-have-at-the-end-of-january) to view the limitations of this question
 
 If we combine the condition from [**question 9**](#q9-if-each-1-spent-equates-to-10-points-and-sushi-has-a-2x-points-multiplier---how-many-points-would-each-customer-have) and the condition in this question, we will have 2 point calculation cases under:
 - **Normal condition:** when **```product_name = 'sushi'```** = points X2, **```else```** = points X1
@@ -583,11 +582,11 @@ ORDER BY customer_id;
 
  <br /> 
 
- ## Limitations
+ ## 🐋 Limitations
  
 > This section includes all the limitations in terms of my understanding regarding the question and on the limited data information in response to the question 3, 5, 6, 7 and 10:
 
-### **Question 3: What was the first item from the menu purchased by each customer?**
+### ⚠️ **Question 3: What was the first item from the menu purchased by each customer?**
 [View solution](#q3-what-was-the-first-item-from-the-menu-purchased-by-each-customer)
 
 The limition of this question includes:
@@ -598,7 +597,7 @@ That's why, in this question I will sort the first purchase order by the **```pr
 
 ---
 
-### **Question 5: Which item was the most popular for each customer?**
+### ⚠️ **Question 5: Which item was the most popular for each customer?**
 [View solution](#q5-which-item-was-the-most-popular-for-each-customer)
 
 The limition of this question includes:
@@ -606,7 +605,7 @@ The limition of this question includes:
 
 ---
 
-### **Question 6: Which item was purchased first by the customer after they became a member?**
+### ⚠️ **Question 6: Which item was purchased first by the customer after they became a member?**
 [View solution](#q6-which-item-was-purchased-first-by-the-customer-after-they-became-a-member)
 
 The limition of this question includes:
@@ -615,7 +614,7 @@ The limition of this question includes:
 ---
 
 
-### **Question 7: Which item was purchased just before the customer became a member?**
+### ⚠️ **Question 7: Which item was purchased just before the customer became a member?**
 [View solution](#q7-which-item-was-purchased-just-before-the-customer-became-a-member)
 
 The limition of this question includes:
@@ -626,7 +625,7 @@ Therefore, the result can be either 1 of those orders made during the last day b
 ---
 
 
-### **Question 10: In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
+### ⚠️ **Question 10: In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
 [View solution](#q10-in-the-first-week-after-a-customer-joins-the-program-including-their-join-date-they-earn-2x-points-on-all-items-not-just-sushi---how-many-points-do-customer-a-and-b-have-at-the-end-of-january)
 
 The limition of this question includes:

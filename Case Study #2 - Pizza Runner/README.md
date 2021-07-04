@@ -1,26 +1,29 @@
+# [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
 ![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
 [![View Main Folder](https://img.shields.io/badge/View-Main_Folder-971901?)](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
 [![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/nduongthucanh?tab=repositories)
 [![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/nduongthucanh)
 
-# [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
 
-# Case Study #2 - Pizza Runner
+
+# 🍕 Case Study #2 - Pizza Runner
 <p align="center">
 <img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=50% height=50%>
 
-## Table Of Contents
-  - [Problem Statement](#problem-statement)
-  - [Dataset](#dataset)
-  - [Case Study Questions](#case-study-questions)
+## 📕 Table Of Contents
+  - 🛠️ [Problem Statement](#problem-statement)
+  - 📂 [Dataset](#dataset)
+  - 🧙‍♂️ [Case Study Questions](#case-study-questions)
     - [Pizza Metrics](#pizza-metrics)
     - [Runner and Customer Experience](#runner-and-customer-experience)
     - [Ingredient Optimisation](#ingredient-optimisation)
     - [Pricing and Ratings](#pricing-and-ratings)
-  - [Solutions](#solutions)
+  - 🚀 [Solutions](#solutions)
  <br /> 
 
-## Problem Statement
+---
+
+## 🛠️ Problem Statement
 
 Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
 
@@ -28,9 +31,9 @@ Danny was sold on the idea, but he knew that pizza alone was not going to help h
 
 Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
 
- <br /> 
+---
 
-## Dataset
+## 📂 Dataset
 Danny has shared with you 6 key datasets for this case study:
 
 * ### **```runners```**
@@ -132,7 +135,7 @@ This table contains all of the **```topping_name```** values with their correspo
 
  <br /> 
 
-## Case Study Questions
+## 🧙‍♂️ Case Study Questions
 <p align="center">
 <img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
 
@@ -197,7 +200,7 @@ Add cheese is $1 extra
      * ```Total number of pizzas```
 5. f a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money does Pizza Runner have left over after these deliveries?
 
- <br /> 
+---
 
-## Solutions
+## 🚀 Solutions
 *UPDATING*
