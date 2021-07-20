@@ -13,22 +13,9 @@
 ## 📕 Table Of Contents
   - 🛠️ [Problem Statement](#problem-statement)
   - 📂 [Dataset](#dataset)
-<<<<<<< Updated upstream
-  - 🧙‍♂️ [Case Study Questions](#case-study-questions)
-    - [Pizza Metrics](#pizza-metrics)
-    - [Runner and Customer Experience](#runner-and-customer-experience)
-    - [Ingredient Optimisation](#ingredient-optimisation)
-    - [Pricing and Ratings](#pricing-and-ratings)
-  - 🚀 [Solutions](#solutions)
- <br /> 
-
----
-
-=======
   - ♻️ [Data Preprocessing](#️-data-preprocessing)
   - 🧙‍♂️ [Case Study Questions](#case-study-questions)
 
->>>>>>> Stashed changes
 ## 🛠️ Problem Statement
 
 Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
@@ -37,11 +24,6 @@ Danny was sold on the idea, but he knew that pizza alone was not going to help h
 
 Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
 
-<<<<<<< Updated upstream
----
-
-=======
->>>>>>> Stashed changes
 ## 📂 Dataset
 Danny has shared with you 6 key datasets for this case study:
 
@@ -183,9 +165,6 @@ View table
 |11        |Tomatoes    | 
 |12        |Tomato Sauce|
 
-<<<<<<< Updated upstream
- <br /> 
-=======
 </details>
 
 ## ♻️ Data Preprocessing
@@ -262,7 +241,6 @@ updated_runner_orders
 | 10       | 1         | 2020-01-11 18:50:20 | 10       | 10       |                         |
 
 </details>
->>>>>>> Stashed changes
 
 ## 🧙‍♂️ Case Study Questions
 <p align="center">
@@ -303,48 +281,9 @@ Runner and Customer Experience
 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 7. What is the successful delivery percentage for each runner?
 
-<<<<<<< Updated upstream
-### 3. **Ingredient Optimisation**
-1. What are the standard ingredients for each pizza?
-2. What was the most commonly added extra?
-3. What was the most common exclusion?
-4. Generate an order item for each record in the **```customers_orders```** table in the format of one of the following:
-   * ```Meat Lovers```
-   * ```Meat Lovers - Exclude Beef```
-   * ```Meat Lovers - Extra Bacon```
-   * ```Meat Lovers - Exclude Cheese, Bacon - Extra Mushroom, Peppers```
-
-5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the **```customer_orders```** table and add a 2x in front of any relevant ingredients
-    * For example: ```"Meat Lovers: 2xBacon, Beef, ... , Salami"```
-6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
-
-### 4. **Pricing and Ratings**
-1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes - how much money has Pizza Runner made so far if there are no delivery fees?
-2. What if there was an additional $1 charge for any pizza extras?
-Add cheese is $1 extra
-3. The Pizza Runner team now wants to add an additional ratings system that allows customers to rate their runner, how would you design an additional table for this new dataset - generate a schema for this new table and insert your own data for ratings for each successful customer order between 1 to 5.
-4. Using your newly generated table - can you join all of the information together to form a table which has the following information for successful deliveries?
-     * ```customer_id```
-     * ```order_id```
-     * ```runner_id```
-     * ```rating```
-     * ```order_time```
-     * ```pickup_time```
-     * ```Time between order and pickup```
-     * ```Delivery duration```
-     * ```Average speed```
-     * ```Total number of pizzas```
-5. f a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money does Pizza Runner have left over after these deliveries?
-
----
-
-## 🚀 Solutions
-*UPDATING*
-=======
 </details>
 
 [![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/2.%20Runner%20and%20Customer%20Experience)
 
 ---
 <p>&copy; 2021 Leah Nguyen</p>
->>>>>>> Stashed changes
