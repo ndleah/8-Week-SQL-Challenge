@@ -16,7 +16,7 @@
 
 -- 1. How many pizzas were ordered?
 SELECT COUNT(*) AS pizza_count
-FROM pizza_runner.customer_orders;
+FROM updated_customer_orders;
 
 --Result:
 +──────────────+
@@ -27,7 +27,7 @@ FROM pizza_runner.customer_orders;
 
 -- 2. How many unique customer orders were made?
 SELECT COUNT (DISTINCT order_id) AS order_count
-FROM pizza_runner.customer_orders;
+FROM updated_customer_orders;
 
 --Result:
 +──────────────+
@@ -40,7 +40,7 @@ FROM pizza_runner.customer_orders;
 SELECT
   runner_id,
   COUNT(order_id) AS successful_orders
-FROM pizza_runner.runner_orders
+FROM updated_runner_orders
 WHERE cancellation IS NULL
 OR cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
 GROUP BY runner_id
@@ -57,35 +57,35 @@ ORDER BY successful_orders DESC;
 
 -- 4. How many of each type of pizza was delivered?
 SELECT
-  pizza_names.pizza_name,
-  COUNT(customer_orders.*) AS pizza_type_count
-FROM pizza_runner.customer_orders
-INNER JOIN pizza_runner.pizza_names
-   ON customer_orders.pizza_id = pizza_names.pizza_id
-INNER JOIN pizza_runner.runner_orders
-   ON customer_orders.order_id = runner_orders.order_id
+  pn.pizza_name,
+  COUNT(co.*) AS pizza_type_count
+FROM updated_customer_orders AS co
+INNER JOIN pizza_runner.pizza_names AS pn
+   ON co.pizza_id = pn.pizza_id
+INNER JOIN pizza_runner.runner_orders AS ro
+   ON co.order_id = ro.order_id
 WHERE cancellation IS NULL
 OR cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
-GROUP BY pizza_names.pizza_name
-ORDER BY pizza_names.pizza_name;
+GROUP BY pn.pizza_name
+ORDER BY pn.pizza_name;
 
 --OR
 SELECT
-  pizza_names.pizza_name,
-  COUNT(customer_orders.*) AS pizza_type_count
-FROM pizza_runner.customer_orders
-INNER JOIN pizza_runner.pizza_names
-   ON customer_orders.pizza_id = pizza_names.pizza_id
+  pn.pizza_name,
+  COUNT(co.*) AS pizza_type_count
+FROM updated_customer_orders AS co
+INNER JOIN pizza_runner.pizza_names AS pn
+   ON co.pizza_id = pn.pizza_id
 WHERE EXISTS (
-  SELECT 1 FROM pizza_runner.runner_orders
-   WHERE runner_orders.order_id = customer_orders.order_id
+  SELECT 1 FROM updated_runner_orders AS ro
+   WHERE ro.order_id = co.order_id
    AND (
-    runner_orders.cancellation IS NULL
-    OR runner_orders.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+    ro.cancellation IS NULL
+    OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
   )
 )
-GROUP BY pizza_names.pizza_name
-ORDER BY pizza_names.pizza_name;
+GROUP BY pn.pizza_name
+ORDER BY pn.pizza_name;
 
 --Result:
 +─────────────+───────────────────+
@@ -100,7 +100,7 @@ SELECT
   customer_id,
   SUM(CASE WHEN pizza_id = 1 THEN 1 ELSE 0 END) AS meat_lovers,
   SUM(CASE WHEN pizza_id = 2 THEN 1 ELSE 0 END) AS vegetarian
-FROM pizza_runner.customer_orders
+FROM updated_customer_orders
 GROUP BY customer_id;
 
 --Result:
@@ -118,15 +118,15 @@ GROUP BY customer_id;
 SELECT MAX(pizza_count) AS max_count
 FROM (
   SELECT
-    customer_orders.order_id,
-    COUNT(customer_orders.pizza_id) AS pizza_count
-  FROM pizza_runner.customer_orders
-  INNER JOIN pizza_runner.runner_orders
-    ON customer_orders.order_id = runner_orders.order_id
+    co.order_id,
+    COUNT(co.pizza_id) AS pizza_count
+  FROM updated_customer_orders AS co
+  INNER JOIN updated_runner_orders AS ro
+    ON co.order_id = ro.order_id
   WHERE 
-    runner_orders.cancellation IS NULL
-    OR runner_orders.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
-  GROUP BY customer_orders.order_id) AS mycount;
+    ro.cancellation IS NULL
+    OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+  GROUP BY co.order_id) AS mycount;
   
 --Result:
 +────────────+
@@ -137,16 +137,16 @@ FROM (
 
 -- 7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 SELECT 
-  customer_orders.customer_id,
-  SUM (CASE WHEN customer_orders.exclusions IS NOT NULL OR customer_orders.extras IS NOT NULL THEN 1 ELSE 0 END) AS changes,
-  SUM (CASE WHEN customer_orders.exclusions IS NULL OR customer_orders.extras IS NULL THEN 1 ELSE 0 END) AS no_change
-FROM pizza_runner.customer_orders
-INNER JOIN pizza_runner.runner_orders
-  ON customer_orders.order_id = runner_orders.order_id
-WHERE runner_orders.cancellation IS NULL
-  OR runner_orders.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
-GROUP BY customer_id
-ORDER BY customer_id;
+  co.customer_id,
+  SUM (CASE WHEN co.exclusions IS NOT NULL OR co.extras IS NOT NULL THEN 1 ELSE 0 END) AS changes,
+  SUM (CASE WHEN co.exclusions IS NULL OR co.extras IS NULL THEN 1 ELSE 0 END) AS no_change
+FROM updated_customer_orders AS co
+INNER JOIN updated_runner_orders AS ro
+  ON co.order_id = ro.order_id
+WHERE ro.cancellation IS NULL
+  OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+GROUP BY co.customer_id
+ORDER BY co.customer_id;
 
 --Result:
 +──────────────+──────────+────────────+
@@ -161,12 +161,12 @@ ORDER BY customer_id;
 
 -- 8. How many pizzas were delivered that had both exclusions and extras?
 SELECT
-  SUM(CASE WHEN exclusions IS NOT NULL AND extras IS NOT NULL THEN 1 ELSE 0 END) as pizza_count
-FROM pizza_runner.customer_orders
-INNER JOIN pizza_runner.runner_orders
-  ON customer_orders.order_id = runner_orders.order_id
-WHERE runner_orders.cancellation IS NULL
-  OR runner_orders.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+  SUM(CASE WHEN co.exclusions IS NOT NULL AND co.extras IS NOT NULL THEN 1 ELSE 0 END) as pizza_count
+FROM updated_customer_orders AS co
+INNER JOIN updated_runner_orders AS ro
+  ON co.order_id = ro.order_id
+WHERE ro.cancellation IS NULL
+  OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
   
 --Result:
 +──────────────+
@@ -179,7 +179,7 @@ WHERE runner_orders.cancellation IS NULL
 SELECT
   DATE_PART('hour', order_time::TIMESTAMP) AS hour_of_day,
   COUNT(*) AS pizza_count
-FROM pizza_runner.customer_orders
+FROM updated_customer_orders
 WHERE order_time IS NOT NULL
 GROUP BY hour_of_day
 ORDER BY hour_of_day;
@@ -201,7 +201,7 @@ ORDER BY hour_of_day;
 SELECT
   TO_CHAR(order_time, 'Day') AS day_of_week,
   COUNT(*) AS pizza_count
-FROM pizza_runner.customer_orders
+FROM updated_customer_orders
 GROUP BY 
   day_of_week, 
   DATE_PART('dow', order_time)
