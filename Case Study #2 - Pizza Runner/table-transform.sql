@@ -2,24 +2,99 @@
    Table Transformation
    --------------------*/
 
--- check data type
+-- data type check
+--customer_orders
+SELECT
+  table_name,
+  column_name,
+  data_type
+FROM information_schema.columns
+WHERE table_name = 'customer_orders';
 
---transform table 
+--Result:
++──────────────────+──────────────+──────────────────────────────+
+| table_name       | column_name  | data_type                    |
++──────────────────+──────────────+──────────────────────────────+
+| customer_orders  | order_id     | integer                      |
+| customer_orders  | customer_id  | integer                      |
+| customer_orders  | pizza_id     | integer                      |
+| customer_orders  | exclusions   | character varying            |
+| customer_orders  | extras       | character varying            |
+| customer_orders  | order_time   | timestamp without time zone  |
++──────────────────+──────────────+──────────────────────────────+
+
+| table_name      | column_name | data_type                   |
+|-----------------|-------------|-----------------------------|
+| customer_orders | order_id    | integer                     |
+| customer_orders | customer_id | integer                     |
+| customer_orders | pizza_id    | integer                     |
+| customer_orders | exclusions  | character varying           |
+| customer_orders | extras      | character varying           |
+| customer_orders | order_time  | timestamp without time zone |
+
+--runner_orders
+SELECT
+  table_name,
+  column_name,
+  data_type
+FROM information_schema.columns
+WHERE table_name = 'runner_orders';
+
+--Result:
++────────────────+──────────────+────────────────────+
+| table_name     | column_name  | data_type          |
++────────────────+──────────────+────────────────────+
+| runner_orders  | order_id     | integer            |
+| runner_orders  | runner_id    | integer            |
+| runner_orders  | pickup_time  | character varying  |
+| runner_orders  | distance     | character varying  |
+| runner_orders  | duration     | character varying  |
+| runner_orders  | cancellation | character varying  |
++────────────────+──────────────+────────────────────+
+
+| table_name    | column_name  | data_type         |
+|---------------|--------------|-------------------|
+| runner_orders | order_id     | integer           |
+| runner_orders | runner_id    | integer           |
+| runner_orders | pickup_time  | character varying |
+| runner_orders | distance     | character varying |
+| runner_orders | duration     | character varying |
+| runner_orders | cancellation | character varying |
+
+
+--Update tables
+
 --1. customer_order
-UPDATE pizza_runner.customer_orders
-SET 
-  exclusions = 
-    CASE WHEN exclusions = '' 
-    OR exclusions = 'null' THEN NULL 
-    ELSE exclusions END
-    ,
-  extras = 
-    CASE WHEN extras = '' 
-    OR extras = 'null' THEN NULL 
-    ELSE extras END
-RETURNING *;
+/*
+Cleaning customer_orders
+- Identify records with null or 'null' values
+- updating null or 'null' values to ''
+- blanks '' are not null because it indicates the customer asked for no extras or exclusions
+*/
+--Blanks indicate that the customer requested no extras/exclusions for the pizza, whereas null values would be ambiguous on this.
 
-/*Result:
+DROP TABLE IF EXISTS updated_customer_orders;
+CREATE TEMP TABLE updated_customer_orders AS (
+  SELECT
+    order_id,
+    customer_id,
+    pizza_id,
+    CASE 
+      WHEN exclusions IS NULL 
+        OR exclusions LIKE 'null' THEN ''
+      ELSE exclusions 
+    END AS exclusions,
+    CASE 
+      WHEN extras IS NULL
+        OR extras LIKE 'null' THEN ''
+      ELSE extras 
+    END AS extras,
+    order_time
+  FROM pizza_runner.customer_orders
+);
+SELECT * FROM updated_customer_orders;
+
+--Result:
 |order_id|customer_id|pizza_id|exclusions|extras|order_time              |
 |--------|-----------|--------|----------|------|------------------------|
 |1       |101        |1       |          |      |2020-01-01T18:05:02.000Z|
@@ -58,30 +133,25 @@ RETURNING *;
 +───────────+──────────────+───────────+─────────────+─────────+───────────────────────────+
 
 --2. runner_orders
-UPDATE pizza_runner.runner_orders
-SET 
-  pickup_time = 
-    CASE WHEN pickup_time = '' 
-    OR pickup_time = 'null' THEN NULL 
-    ELSE pickup_time::TIMESTAMP END
-    ,
-  distance = 
-    CASE WHEN distance = '' 
-    OR distance = 'null' THEN NULL 
-    ELSE REGEXP_REPLACE(distance, '[a-z]+', '', 'g')::NUMERIC END 
-    ,
-  duration = 
-    CASE WHEN duration = '' 
-    OR duration = 'null' THEN NULL 
-    ELSE REGEXP_REPLACE(duration, '[a-z]+', '', 'g')::NUMERIC END
-    ,
-  cancellation = 
-    CASE WHEN cancellation = '' 
-    OR cancellation = 'null' THEN NULL 
-    ELSE cancellation END
-RETURNING *;
+/*
+- pickup time, distance, duration is of the wrong type
+- records have nulls in these columns when the orders are cancelled
+- convert text 'null' to null values
+- units (km, minutes) need to be removed from distance and duration
+*/
+DROP TABLE IF EXISTS updated_runner_orders;
+CREATE TEMP TABLE updated_runner_orders AS (
+  SELECT
+    order_id,
+    runner_id,
+    CASE WHEN pickup_time LIKE 'null' THEN null ELSE pickup_time END::timestamp AS pickup_time,
+    NULLIF(regexp_replace(distance, '[^0-9.]','','g'), '')::numeric AS distance,
+    NULLIF(regexp_replace(duration, '[^0-9.]','','g'), '')::numeric AS duration,
+    CASE WHEN cancellation IN ('null', 'NaN', '') THEN null ELSE cancellation END AS cancellation
+  FROM pizza_runner.runner_orders);
+SELECT * FROM updated_runner_orders;
 
-/*Result:
+--Result:
 | order_id | runner_id | pickup_time         | distance | duration | cancellation            |
 |----------|-----------|---------------------|----------|----------|-------------------------|
 | 1        | 1         | 2020-01-01 18:15:34 | 20       | 32       |                         |
@@ -110,3 +180,63 @@ RETURNING *;
 | 9         | 2          |                      |           |           | Customer Cancellation    |
 | 10        | 1          | 2020-01-11 18:50:20  | 10        | 10        |                          |
 +───────────+────────────+──────────────────────+───────────+───────────+──────────────────────────+
+
+-- data type check
+--updated_customer_orders
+SELECT
+  table_name,
+  column_name,
+  data_type
+FROM information_schema.columns
+WHERE table_name = 'updated_customer_orders'
+
+--Result:
++──────────────────────────+──────────────+──────────────────────────────+
+| table_name               | column_name  | data_type                    |
++──────────────────────────+──────────────+──────────────────────────────+
+| updated_customer_orders  | order_id     | integer                      |
+| updated_customer_orders  | customer_id  | integer                      |
+| updated_customer_orders  | pizza_id     | integer                      |
+| updated_customer_orders  | exclusions   | character varying            |
+| updated_customer_orders  | extras       | character varying            |
+| updated_customer_orders  | order_time   | timestamp without time zone  |
++──────────────────────────+──────────────+──────────────────────────────+
+
+
+| table_name              | column_name | data_type                   |
+|-------------------------|-------------|-----------------------------|
+| updated_customer_orders | order_id    | integer                     |
+| updated_customer_orders | customer_id | integer                     |
+| updated_customer_orders | pizza_id    | integer                     |
+| updated_customer_orders | exclusions  | character varying           |
+| updated_customer_orders | extras      | character varying           |
+| updated_customer_orders | order_time  | timestamp without time zone |
+
+--updated_runner_orders
+SELECT
+  table_name,
+  column_name,
+  data_type
+FROM information_schema.columns
+WHERE table_name = 'updated_runner_orders'
+
+--Result:
++────────────────────────+──────────────+──────────────────────────────+
+| table_name             | column_name  | data_type                    |
++────────────────────────+──────────────+──────────────────────────────+
+| updated_runner_orders  | order_id     | integer                      |
+| updated_runner_orders  | runner_id    | integer                      |
+| updated_runner_orders  | pickup_time  | timestamp without time zone  |
+| updated_runner_orders  | distance     | numeric                      |
+| updated_runner_orders  | duration     | numeric                      |
+| updated_runner_orders  | cancellation | character varying            |
++────────────────────────+──────────────+──────────────────────────────+
+
+| table_name            | column_name  | data_type                   |
+|-----------------------|--------------|-----------------------------|
+| updated_runner_orders | order_id     | integer                     |
+| updated_runner_orders | runner_id    | integer                     |
+| updated_runner_orders | pickup_time  | timestamp without time zone |
+| updated_runner_orders | distance     | numeric                     |
+| updated_runner_orders | duration     | numeric                     |
+| updated_runner_orders | cancellation | character varying           |
