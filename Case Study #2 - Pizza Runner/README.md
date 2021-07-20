@@ -13,6 +13,7 @@
 ## 📕 Table Of Contents
   - 🛠️ [Problem Statement](#problem-statement)
   - 📂 [Dataset](#dataset)
+<<<<<<< Updated upstream
   - 🧙‍♂️ [Case Study Questions](#case-study-questions)
     - [Pizza Metrics](#pizza-metrics)
     - [Runner and Customer Experience](#runner-and-customer-experience)
@@ -23,6 +24,11 @@
 
 ---
 
+=======
+  - ♻️ [Data Preprocessing](#️-data-preprocessing)
+  - 🧙‍♂️ [Case Study Questions](#case-study-questions)
+
+>>>>>>> Stashed changes
 ## 🛠️ Problem Statement
 
 Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
@@ -31,14 +37,22 @@ Danny was sold on the idea, but he knew that pizza alone was not going to help h
 
 Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
 
+<<<<<<< Updated upstream
 ---
 
+=======
+>>>>>>> Stashed changes
 ## 📂 Dataset
 Danny has shared with you 6 key datasets for this case study:
 
 * ### **```runners```**
 
 The runners table shows the **```registration_date```** for each new runner.
+
+<details>
+<summary>
+View table
+</summary>
 
 |runner_id|registration_date|
 |---------|-----------------|
@@ -47,12 +61,18 @@ The runners table shows the **```registration_date```** for each new runner.
 |3        |1/8/2021         |
 |4        |1/15/2021        |
 
+</details>
 
- <br /> 
+---
 
 * ### **```customer_orders```**
 
 Customer pizza orders are captured in the **```customer_orders```** table with 1 row for each individual pizza that is part of the order.
+
+<details>
+<summary>
+View table
+</summary>
 
 |order_id|customer_id|pizza_id|exclusions|extras|order_time        |
 |--------|---------|--------|----------|------|------------------|
@@ -71,14 +91,22 @@ Customer pizza orders are captured in the **```customer_orders```** table with 1
 |10 |104      |1       |null      |null  |44207.77417824074 |
 |10 |104      |1       |2, 6      |1, 4  |44207.77417824074 |
 
+</details>
 
- <br /> 
+---
 
 * ### **```runner_orders```**
 
 After each orders are received through the system - they are assigned to a runner - however not all orders are fully completed and can be cancelled by the restaurant or the customer.
 
-The pickup_time is the timestamp at which the runner arrives at the Pizza Runner headquarters to pick up the freshly cooked pizzas. The **```distance```** and **```duration```** fields are related to how far and long the runner had to travel to deliver the order to the respective customer.
+The **```pickup_time```** is the timestamp at which the runner arrives at the Pizza Runner headquarters to pick up the freshly cooked pizzas. 
+
+The **```distance```** and **```duration```** fields are related to how far and long the runner had to travel to deliver the order to the respective customer.
+
+<details>
+<summary>
+View table
+</summary>
 
 |order_id|runner_id|pickup_time|distance  |duration|cancellation      |
 |--------|---------|-----------|----------|--------|------------------|
@@ -93,30 +121,52 @@ The pickup_time is the timestamp at which the runner arrives at the Pizza Runner
 |9       |2        |null       |null      |null    |Customer Cancellation|
 |10      |1        |1/11/2020 18:50|10km      |10minutes|null              |
 
- <br /> 
+</details>
+
+---
 
 * ### **```pizza_names```**
+
+<details>
+<summary>
+View table
+</summary>
 
 |pizza_id|pizza_name|
 |--------|----------|
 |1       |Meat Lovers|
 |2       |Vegetarian|
 
- <br /> 
+</details>
+
+---
 
  *  ### **```pizza_recipes```**
 
 Each **```pizza_id```** has a standard set of **```toppings```** which are used as part of the pizza recipe.
 
+<details>
+<summary>
+View table
+</summary>
+
 |pizza_id|toppings |
 |--------|---------|
 |1       |1, 2, 3, 4, 5, 6, 8, 10| 
 |2       |4, 6, 7, 9, 11, 12| 
- <br /> 
+
+</details>
+
+---
 
   *  ### **```pizza_toppings```**
 
 This table contains all of the **```topping_name```** values with their corresponding **```topping_id```** value.
+
+<details>
+<summary>
+View table
+</summary>
 
 |topping_id|topping_name|
 |----------|------------|
@@ -133,21 +183,98 @@ This table contains all of the **```topping_name```** values with their correspo
 |11        |Tomatoes    | 
 |12        |Tomato Sauce|
 
+<<<<<<< Updated upstream
  <br /> 
+=======
+</details>
+
+## ♻️ Data Preprocessing
+Data issues in the existing schema include:
+
+* **```customer_orders``` table**
+  - ```null``` values entered as text
+  - using both ```NaN``` and ```null``` values
+* **```runner_orders``` table**
+  - ```null``` values entered as text
+  - using both ```NaN``` and ```null``` values
+  - units manually entered in ```distance``` and ```duration``` columns
+
+### Data Cleaning
+
+**```customer_orders```**
+- Converting ```null``` and ```NaN``` values into blanks ```''``` in ```exclusions``` and ```extras```
+  - Blanks indicate that the customer requested no extras/exclusions for the pizza, whereas ```null``` values would be ambiguous.
+- Saving the transformations in a temporary table
+  - We want to avoid permanently changing the raw data via ```UPDATE``` commands if possible.
+
+**```runner_orders```**
+
+- Converting ```'null'``` text values into null values for ```pickup_time```, ```distance``` and ```duration```
+- Extracting only numbers and decimal spaces for the distance and duration columns
+  - Use regular expressions and ```NULLIF``` to convert non-numeric entries to null values
+- Converting blanks, ```'null'``` and ```NaN``` into null values for cancellation
+- Saving the transformations in a temporary table
+
+> ⚠️ Access [here](https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/Case%20Study%20%232%20-%20Pizza%20Runner/table-transform.sql) to view full solution.
+
+**Result:**
+
+<details>
+<summary> 
+updated_customer_orders
+</summary>
+
+|order_id|customer_id|pizza_id|exclusions|extras|order_time              |
+|--------|-----------|--------|----------|------|------------------------|
+|1       |101        |1       |          |      |2020-01-01T18:05:02.000Z|
+|2       |101        |1       |          |      |2020-01-01T19:00:52.000Z|
+|3       |102        |1       |          |      |2020-01-02T12:51:23.000Z|
+|3       |102        |2       |          |      |2020-01-02T12:51:23.000Z|
+|4       |103        |1       |4         |      |2020-01-04T13:23:46.000Z|
+|4       |103        |1       |4         |      |2020-01-04T13:23:46.000Z|
+|4       |103        |2       |4         |      |2020-01-04T13:23:46.000Z|
+|5       |104        |1       |          |1     |2020-01-08T21:00:29.000Z|
+|6       |101        |2       |          |      |2020-01-08T21:03:13.000Z|
+|7       |105        |2       |          |1     |2020-01-08T21:20:29.000Z|
+|8       |102        |1       |          |      |2020-01-09T23:54:33.000Z|
+|9       |103        |1       |4         |1, 5  |2020-01-10T11:22:59.000Z|
+|10      |104        |1       |          |      |2020-01-11T18:34:49.000Z|
+|10      |104        |1       |2, 6      |1, 4  |2020-01-11T18:34:49.000Z|
+
+</details>
+
+<details>
+<summary> 
+updated_runner_orders
+</summary>
+
+| order_id | runner_id | pickup_time         | distance | duration | cancellation            |
+|----------|-----------|---------------------|----------|----------|-------------------------|
+| 1        | 1         | 2020-01-01 18:15:34 | 20       | 32       |                         |
+| 2        | 1         | 2020-01-01 19:10:54 | 20       | 27       |                         |
+| 3        | 1         | 2020-01-02 00:12:37 | 13.4     | 20       |                         |
+| 4        | 2         | 2020-01-04 13:53:03 | 23.4     | 40       |                         |
+| 5        | 3         | 2020-01-08 21:10:57 | 10       | 15       |                         |
+| 6        | 3         |                     |          |          | Restaurant Cancellation |
+| 7        | 2         | 2020-01-08 21:30:45 | 25       | 25       |                         |
+| 8        | 2         | 2020-01-10 00:15:02 | 23.4     | 15       |                         |
+| 9        | 2         |                     |          |          | Customer Cancellation   |
+| 10       | 1         | 2020-01-11 18:50:20 | 10       | 10       |                         |
+
+</details>
+>>>>>>> Stashed changes
 
 ## 🧙‍♂️ Case Study Questions
 <p align="center">
 <img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
 
 This case study has LOTS of questions - they are broken up by area of focus including:
-- Pizza Metrics
-- Runner and Customer Experience
-- Ingredient Optimisation
-- Pricing and Ratings
 
----
+<details>
+<summary> 
+Pizza Metrics
+</summary>
 
-### 1. **Pizza Metrics**
 1. How many pizzas were ordered?
 2. How many unique customer orders were made?
 3. How many successful orders were delivered by each runner?
@@ -159,7 +286,15 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 9. What was the total volume of pizzas ordered for each hour of the day?
 10. What was the volume of orders for each day of the week?
 
-### 2. **Runner and Customer Experience**
+</details>
+
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/1.%20Pizza%20Metrics)
+
+<details>
+<summary>
+Runner and Customer Experience
+</summary>
+
 1. How many runners signed up for each 1 week period? (i.e. week starts **```2021-01-01```**)
 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
@@ -168,6 +303,7 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 7. What is the successful delivery percentage for each runner?
 
+<<<<<<< Updated upstream
 ### 3. **Ingredient Optimisation**
 1. What are the standard ingredients for each pizza?
 2. What was the most commonly added extra?
@@ -204,3 +340,11 @@ Add cheese is $1 extra
 
 ## 🚀 Solutions
 *UPDATING*
+=======
+</details>
+
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/2.%20Runner%20and%20Customer%20Experience)
+
+---
+<p>&copy; 2021 Leah Nguyen</p>
+>>>>>>> Stashed changes
