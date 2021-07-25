@@ -1,12 +1,12 @@
-# [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge) 
+# [8-Week SQL Challenge](https://github.com/ndleah/8-Week-SQL-Challenge) 
 ![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
-[![View Main Folder](https://img.shields.io/badge/View-Main_Folder-971901?)](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
-[![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/nduongthucanh?tab=repositories)
-[![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/nduongthucanh)
+[![View Main Folder](https://img.shields.io/badge/View-Main_Folder-971901?)](https://github.com/ndleah/8-Week-SQL-Challenge)
+[![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/ndleah?tab=repositories)
+[![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/ndleah)
 
 # 🍜 Case Study #1 - Danny's Diner
 <p align="center">
-<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-1.png" width=50% height=50%>
+<img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/org-1.png" width=50% height=50%>
 
 ## 📕 Table Of Contents
 * 🛠️ [Problem Statement](#problem-statement)
@@ -54,7 +54,6 @@ The sales table captures all ```customer_id``` level purchases with an correspon
 
 * ### **```menu```**
 
-
 The menu table maps the ```product_id``` to the actual ```product_name``` and price of each menu item.
 
 |product_id |product_name|price     |
@@ -98,11 +97,11 @@ The final members table captures the ```join_date``` when a ```customer_id``` jo
 ### **Q1. What is the total amount each customer spent at the restaurant?**
 ```sql
 SELECT 
-	sales.customer_id,
+  sales.customer_id,
   SUM(menu.price) AS total_spent
 FROM dannys_diner.sales
 JOIN dannys_diner.menu
-	ON sales.product_id = menu.product_id
+  ON sales.product_id = menu.product_id
 GROUP BY customer_id
 ORDER BY customer_id;
 ```
@@ -145,7 +144,6 @@ GROUP BY customer_id;
 
 ### **Q3. What was the first item from the menu purchased by each customer?**
 > ⚠️ Access [**here**](#️-question-3-what-was-the-first-item-from-the-menu-purchased-by-each-customer) to view the limitations of this question
-
 
 ```sql
 WITH cte_order AS (
@@ -253,7 +251,6 @@ WHERE rank = 1;
 
 ---
 
-
 **Note:** Before answering **question 6-10**, I created a **```membership_validation```** table to validate only those customers joining in the membership program:
 ```sql
 DROP TABLE IF EXISTS membership_validation;
@@ -292,7 +289,7 @@ WITH cte_first_after_mem AS (
   SELECT 
     customer_id,
     product_name,
-  	order_date,
+    order_date,
     RANK() OVER(
     PARTITION BY customer_id
     ORDER BY order_date) AS purchase_order
@@ -328,7 +325,7 @@ WITH cte_last_before_mem AS (
   SELECT 
     customer_id,
     product_name,
-  	order_date,
+    order_date,
     RANK() OVER(
     PARTITION BY customer_id
     ORDER BY order_date DESC) AS purchase_order
@@ -365,7 +362,7 @@ WITH cte_spent_before_mem AS (
   WHERE membership = ''
 )
 SELECT 
-	customer_id,
+  customer_id,
   SUM(price) AS total_spent,
   COUNT(*) AS total_items
 FROM cte_spent_before_mem
@@ -422,7 +419,7 @@ If we combine the condition from [**question 9**](#q9-if-each-1-spent-equates-to
 
 I have created a timeline as illustration for wheareas we apply the conditions:
 <p align="center">
-<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/timeline.png" width=100% height=100%>
+<img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/timeline.png" width=100% height=100%>
 
 ### **Step 1:**
 
@@ -451,13 +448,13 @@ SELECT
   END AS within_first_week
 FROM membership_validation
 GROUP BY 
-	customer_id,
+  customer_id,
   order_date,
   product_name,
   price,
   join_date
  ORDER BY
- 	customer_id,
+  customer_id,
   order_date
 )
 SELECT * FROM cte_valid
@@ -613,7 +610,6 @@ The limition of this question includes:
 * Since it is not clear that those orders made during the **join_date** was <ins>**after**</ins> or <ins>**before**</ins> the customer joined in the membership program because of the lack of **```order_date```** and **```join_date```** information (does not include details of the purchase time), I will assume these orders were made after the customer had already joined the program. 
 ---
 
-
 ### ⚠️ **Question 7: Which item was purchased just before the customer became a member?**
 [View solution](#q7-which-item-was-purchased-just-before-the-customer-became-a-member)
 
@@ -624,7 +620,6 @@ Therefore, the result can be either 1 of those orders made during the last day b
 
 ---
 
-
 ### ⚠️ **Question 10: In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
 [View solution](#q10-in-the-first-week-after-a-customer-joins-the-program-including-their-join-date-they-earn-2x-points-on-all-items-not-just-sushi---how-many-points-do-customer-a-and-b-have-at-the-end-of-january)
 
@@ -633,3 +628,5 @@ The limition of this question includes:
 
 ---
 <p>&copy; 2021 Leah Nguyen</p>
+
+

@@ -1,14 +1,13 @@
-# [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
+# [8-Week SQL Challenge](https://github.com/ndleah/8-Week-SQL-Challenge)
 ![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
-[![View Main Folder](https://img.shields.io/badge/View-Main_Folder-971901?)](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
-[![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/nduongthucanh?tab=repositories)
-[![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/nduongthucanh)
-
+[![View Main Folder](https://img.shields.io/badge/View-Main_Folder-971901?)](https://github.com/ndleah/8-Week-SQL-Challenge)
+[![View Repositories](https://img.shields.io/badge/View-My_Repositories-blue?logo=GitHub)](https://github.com/ndleah?tab=repositories)
+[![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/ndleah)
 
 
 # 🍕 Case Study #2 - Pizza Runner
 <p align="center">
-<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=50% height=50%>
+<img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=50% height=50%>
 
 ## 📕 Table Of Contents
   - 🛠️ [Problem Statement](#problem-statement)
@@ -194,7 +193,7 @@ Data issues in the existing schema include:
 - Converting blanks, ```'null'``` and ```NaN``` into null values for cancellation
 - Saving the transformations in a temporary table
 
-> ⚠️ Access [here](https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/Case%20Study%20%232%20-%20Pizza%20Runner/table-transform.sql) to view full solution.
+> ⚠️ Access [here](https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/Case%20Study%20%232%20-%20Pizza%20Runner/table-transform.sql) to view full solution.
 
 **Result:**
 
@@ -266,7 +265,7 @@ Pizza Metrics
 
 </details>
 
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/1.%20Pizza%20Metrics)
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/1.%20Pizza%20Metrics)
 
 <details>
 <summary>
@@ -283,7 +282,7 @@ Runner and Customer Experience
 
 </details>
 
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/nduongthucanh/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/2.%20Runner%20and%20Customer%20Experience)
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/2.%20Runner%20and%20Customer%20Experience)
 
 ---
 <p>&copy; 2021 Leah Nguyen</p>
