@@ -70,7 +70,8 @@ Danny created Foodie-Fi with a data driven mindset and wanted to ensure all futu
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-3/).
 
-## *[UPDATING]*
+## View the entire solution for this part [**here**](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%233%20-%20Foodie-Fi) or
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_3-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%233%20-%20Foodie-Fi)
 
 ---
 
