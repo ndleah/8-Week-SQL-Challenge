@@ -4,37 +4,46 @@
 
 # [8-Week SQL Challenge](https://github.com/nduongthucanh/8-Week-SQL-Challenge)
 
-# Case Study #2 - Pizza Metrics
+# Case Study #4 - Customer Nodes Exploration
 <p align="center">
-<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=50% height=50%>
+<img src="https://github.com/nduongthucanh/8-Week-SQL-Challenge/blob/main/IMG/org-4.png" width=50% height=50%>
 
 
 ## 🧙‍♂️ Case Study's Questions
 
-1. How many pizzas were ordered?
-2. How many unique customer orders were made?
-3. How many successful orders were delivered by each runner?
-4. How many of each type of pizza was delivered?
-5. How many Vegetarian and Meatlovers were ordered by each customer?
-6. What was the maximum number of pizzas delivered in a single order?
-7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
-8. How many pizzas were delivered that had both exclusions and extras?
-9. What was the total volume of pizzas ordered for each hour of the day?
-10. What was the volume of orders for each day of the week?
+1. How many unique nodes are there on the Data Bank system?
+2. What is the number of nodes per region?
+3. How many customers are allocated to each region?
+4. How many days on average are customers reallocated to a different node?
+5. What is the median, 80th and 95th percentile for this same reallocation days metric for each region?
 
  <br /> 
 
 ## 🚀 Solutions
 
-### **Q1. How many pizzas were ordered?**
+### **Q1. How many unique nodes are there on the Data Bank system?**
 
-1.
+```sql
+SELECT COUNT(DISTINCT node_id) AS node_counts
+FROM data_bank.customer_nodes;
+```
+
 | "node_count" |
 |--------------|
 | 5            |
 
+### **Q2. What is the number of nodes per region?**
 
-2.
+```sql
+SELECT
+	regions.region_name,
+	COUNT(DISTINCT customer_nodes.node_id) AS node_counts
+FROM data_bank.regions
+INNER JOIN data_bank.customer_nodes
+ON regions.region_id = customer_nodes.region_id
+GROUP BY regions.region_name;
+```
+
 | "region_name" | "node_counts" |
 |---------------|---------------|
 | "Africa"      | 5             |
@@ -43,8 +52,18 @@
 | "Australia"   | 5             |
 | "Europe"      | 5             |
 
+### **Q3. How many customers are allocated to each region?**
 
-3.
+```sql
+SELECT
+	regions.region_name,
+	COUNT(DISTINCT customer_nodes.customer_id) AS customer_counts
+FROM data_bank.regions
+INNER JOIN data_bank.customer_nodes
+ON regions.region_id = customer_nodes.region_id
+GROUP BY regions.region_name;
+```
+
 | "region_name" | "customer_counts" |
 |---------------|-------------------|
 | "Africa"      | 102               |
