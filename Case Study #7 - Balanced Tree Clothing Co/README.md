@@ -5,7 +5,7 @@
 [![View My Profile](https://img.shields.io/badge/View-My_Profile-green?logo=GitHub)](https://github.com/ndleah)
 
 
-# 🪙 Case Study #7 - Balanced Tree Clothing Co.
+# 🌲 Case Study #7 - Balanced Tree Clothing Co.
 <p align="center">
 <img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/org-7.png" width=50% height=50%>
 
