@@ -117,8 +117,6 @@ View table
 4. How many days on average are customers reallocated to a different node?
 5. What is the median, 80th and 95th percentile for this same reallocation days metric for each region?
 
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/1.%20Pizza%20Metrics)
-
 ### **B. Customer Transactions**
 
 1. What is the unique count and total amount for each transaction type?
@@ -127,7 +125,81 @@ View table
 4. What is the closing balance for each customer at the end of the month?
 5. What is the percentage of customers who increase their closing balance by more than 5%?
 
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/2.%20Runner%20and%20Customer%20Experience)
+## 🚀 Solutions
+### **A. Customer Nodes Exploration**
+
+<details>
+<summary>
+View solutions
+</summary>
+
+### **Q1. How many unique nodes are there on the Data Bank system?**
+
+```sql
+SELECT COUNT(DISTINCT node_id) AS node_counts
+FROM data_bank.customer_nodes;
+```
+
+| "node_count" |
+|--------------|
+| 5            |
+
+### **Q2. What is the number of nodes per region?**
+
+```sql
+SELECT
+	regions.region_name,
+	COUNT(DISTINCT customer_nodes.node_id) AS node_counts
+FROM data_bank.regions
+INNER JOIN data_bank.customer_nodes
+ON regions.region_id = customer_nodes.region_id
+GROUP BY regions.region_name;
+```
+
+| "region_name" | "node_counts" |
+|---------------|---------------|
+| "Africa"      | 5             |
+| "America"     | 5             |
+| "Asia"        | 5             |
+| "Australia"   | 5             |
+| "Europe"      | 5             |
+
+### **Q3. How many customers are allocated to each region?**
+
+```sql
+SELECT
+	regions.region_name,
+	COUNT(DISTINCT customer_nodes.customer_id) AS customer_counts
+FROM data_bank.regions
+INNER JOIN data_bank.customer_nodes
+ON regions.region_id = customer_nodes.region_id
+GROUP BY regions.region_name;
+```
+
+| "region_name" | "customer_counts" |
+|---------------|-------------------|
+| "Africa"      | 102               |
+| "America"     | 105               |
+| "Asia"        | 95                |
+| "Australia"   | 110               |
+| "Europe"      | 88                |
+
+
+4.
+
+</details>
+---
+
+### **B. Customer Transactions**
+
+<details>
+<summary>
+View solutions
+</summary>
+
+
+
+</details>
 
 ---
 <p>&copy; 2021 Leah Nguyen</p>
