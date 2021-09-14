@@ -90,7 +90,7 @@ This case study is all about calculating metrics, growth and helping the busines
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-4/).
 
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_4-971901?style=for-the-badge&logo=GITHUB)](/Case%20Study%20#4%20-%20Data%20Bank)
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_4-971901?style=for-the-badge&logo=GITHUB)](/Case%20Study%20%234%20-%20Data%20Bank)
 
 ---
 
