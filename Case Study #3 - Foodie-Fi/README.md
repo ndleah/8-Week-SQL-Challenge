@@ -24,7 +24,12 @@ Danny created Foodie-Fi with a data driven mindset and wanted to ensure all futu
 ## 📂 Dataset
 Danny has shared with you 2 key datasets for this case study:
 
-* ### **```plan```**
+### **```plan```**
+
+<details>
+<summary>
+View table
+</summary>
 
 The plan table shows which plans customer can choose to join Foodie-Fi when they first sign up.
 
@@ -33,11 +38,6 @@ The plan table shows which plans customer can choose to join Foodie-Fi when they
 * **Basic plan:** limited access and can only stream user videos
 * **Pro plan** no watch time limits and video are downloadable with 2 subscription options: **monthly** and **annually**
 
-
-<details>
-<summary>
-View table
-</summary>
 
 | "plan_id" | "plan_name"     | "price" |
 |-----------|-----------------|---------|
@@ -50,22 +50,21 @@ View table
 
 </details>
 
----
 
-* ### **```subscriptions```**
+### **```subscriptions```**
 
-Customer subscriptions show the exact date where their specific ```plan_id``` starts.
-
-
-
-If customers downgrade from a pro plan or cancel their subscription - the higher plan will remain in place until the period is over - the ```start_date``` in the ```subscriptions``` table will reflect the date that the actual plan changes.
-
-In this part, I will display the first 20 rows of this dataset since the original one is super long:
 
 <details>
 <summary>
 View table
 </summary>
+
+Customer subscriptions show the exact date where their specific ```plan_id``` starts.
+
+If customers downgrade from a pro plan or cancel their subscription - the higher plan will remain in place until the period is over - the ```start_date``` in the ```subscriptions``` table will reflect the date that the actual plan changes.
+
+In this part, I will display the first 20 rows of this dataset since the original one is super long:
+
 
 | "customer_id" | "plan_id" | "start_date" |
 |---------------|-----------|--------------|
@@ -117,18 +116,12 @@ View table
 SELECT COUNT(DISTINCT customer_id) AS total_customers
 FROM foodie_fi.subscriptions;
 ```
-**Results:**
+
 
 | total_customers |
 |-------------------|
 | 1000              |
 
-
-**Answer:** 
-
-Foodie has had **1000 customers** 
-
----
 
 **Q2. What plan start_date values occur after the year 2020 for our dataset? Show the breakdown by count of events for each ```plan_name**
 
@@ -139,7 +132,7 @@ WHERE plan_id = 0
 GROUP BY months
 ORDER BY months;
 ```
-**Results:**
+
 months | count 
 -------|-------
    1 |    88
@@ -156,7 +149,6 @@ months | count
   12 |    84
 
 
----
 
 **Q3. What plan start_date values occur after the year 2020 for our dataset? Show the breakdown by count of events for each plan_name**
 ```SQL
@@ -166,7 +158,7 @@ WHERE start_date > '2020-01-01'::DATE
 GROUP BY plan_id
 ORDER BY plan_id;
 ```
-**Results:**
+
 plan_id | count 
 --------|-------
  0 |   997
@@ -194,12 +186,12 @@ SELECT churn_count.num AS num_churned,
        churn_count.num::FLOAT  / total_count.num::FLOAT *100 AS percent_churned
 FROM churn_count, total_count;
 ```
-**Results:**
+
 num_churned | percent_churned 
 -------------|-----------------
   307 |            30.7
 
----
+
 
 **Q5. How many customers have churned straight after their initial free trial what percentage is this rounded to the nearest whole number?**
 ```SQL
@@ -221,12 +213,11 @@ SELECT direct_churner, direct_churner::FLOAT/num::FLOAT * 100 AS percent_churned
 FROM direct_churner_cte, total_count;
 ```
 
-**Results:**
+
   direct_churner | percent_churned 
  ----------------|-----------------
  92 |             9.2
 
----
 
 **Q6. What is the number and percentage of customer plans after their initial free trial?**
 ```SQL
@@ -251,7 +242,6 @@ FROM current_plan_count JOIN conversions
     ON current_plan_count.plan_id = conversions.next_plan;
 ```
 
-**Results:**
 plan_id | total_conversions | num | percent_directly_converted 
 -------------|-------------------|-----|----------------------------
    1 |               546 | 546 |                     100.00
@@ -259,7 +249,6 @@ plan_id | total_conversions | num | percent_directly_converted
    3 |                37 | 258 |                      14.34
    4 |                92 | 307 |                      29.97
 
----
 
 **Q7. What is the customer count and percentage breakdown of all 5 plan_name values at 2020-12-31?**
 ```SQL
@@ -280,7 +269,6 @@ SELECT plan_id, customers, ROUND(CAST(customers::FLOAT / num::FLOAT * 100 AS NUM
 FROM customers_on_date_cte, total_count;
 ```
 
-**Results:**
  plan_id | customers | percent 
  ---------|-----------|---------
    0 |        19 |    1.90
@@ -289,8 +277,6 @@ FROM customers_on_date_cte, total_count;
    3 |       195 |   19.50
    4 |       235 |   23.50
 
-
----
 
 **Q8. How many customers have upgraded to an annual plan in 2020?**
 ```SQL
@@ -303,13 +289,6 @@ WHERE next_plan=3 AND EXTRACT(YEAR FROM start_date) = '2020';
 count |
 ------
 253
-
-
-**Answer:** 
-
-There are **253 customers** have upgraded to an annual plan in 2020.
-
----
 
 **Q9. How many days on average does it take for a customer to an annual plan from the day they join Foodie-Fi?**
 ```SQL
@@ -329,16 +308,11 @@ SELECT ROUND(AVG(upgrade_date - start_date), 2) AS avg_days_to_upgrade
 FROM join_date JOIN pro_date
     ON join_date.customer_id = pro_date.customer_id;
 ```
-**Results:**
+
 avg_days_to_upgrade |
 -------------------|
 104.62
 
-**Answer:**
-
-It take **104.62 days** for a customer to an annual plan from the day they join Foodie-Fi
-
----
 
 **Q10. Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)**
 ```SQL
@@ -380,7 +354,6 @@ ORDER BY avg_days_to_upgrade;
 | 330-360      | 1       |
 
 
----
 
 **Q11. How many customers downgraded from a pro monthly to a basic monthly plan in 2020?**
 
@@ -394,10 +367,5 @@ WHERE plan_id=2 AND next_plan=1;
 customers_downgraded|
 --------------------|
  0
-
-**Answer:** 
-
-There is **0 customer** downgraded from a pro monthly to a basic monthly plan in 2020
-
 ---
 <p>&copy; 2021 Leah Nguyen</p>

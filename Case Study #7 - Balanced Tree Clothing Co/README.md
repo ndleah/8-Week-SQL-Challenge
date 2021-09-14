@@ -7,7 +7,7 @@
 
 # 🌲 Case Study #7 - Balanced Tree Clothing Co.
 <p align="center">
-<img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/org-7.png" width=50% height=50%>
+<img src="/IMG/org-7.png" width=40% height=40%>
 
 ## 📕 Table Of Contents
   - 🛠️ [Problem Statement](#problem-statement)
@@ -24,14 +24,14 @@
 ## 📂 Dataset
 For this case study there is a total of 4 datasets for this case study. However you will only need to utilise 2 main tables to solve all of the regular questions:
 
-* ### **```Product Details```**
-
-`balanced_tree.product_details` includes all information about the entire range that Balanced Clothing sells in their store.
+### **```Product Details```**
 
 <details>
 <summary>
 View table
 </summary>
+
+`balanced_tree.product_details` includes all information about the entire range that Balanced Clothing sells in their store.
 
 | "product_id" | "price" | "product_name"                     | "category_id" | "segment_id" | "style_id" | "category_name" | "segment_name" | "style_name"          |
 |--------------|---------|------------------------------------|---------------|--------------|------------|-----------------|----------------|-----------------------|
@@ -48,21 +48,18 @@ View table
 | "b9a74d"     | 17      | "White Striped Socks - Mens"       | 2             | 6            | 17         | "Mens"          | "Socks"        | "White Striped"       |
 | "2feb6b"     | 29      | "Pink Fluro Polkadot Socks - Mens" | 2             | 6            | 18         | "Mens"          | "Socks"        | "Pink Fluro Polkadot" |
 
-
 </details>
 
----
-
-* ### **```Product Sales```**
-
-`balanced_tree.sales` contains product level information for all the transactions made for Balanced Tree including quantity, price, percentage discount, member status, a transaction ID and also the transaction timestamp.
-
-Below is the display of the first 10 rows in this dataset:
+### **```Product Sales```**
 
 <details>
 <summary>
 View table
 </summary>
+
+`balanced_tree.sales` contains product level information for all the transactions made for Balanced Tree including quantity, price, percentage discount, member status, a transaction ID and also the transaction timestamp.
+
+Below is the display of the first 10 rows in this dataset:
 
 
 | "prod_id" | "qty" | "price" | "discount" | "member" | "txn_id" | "start_txn_time"           |

@@ -7,7 +7,7 @@
 
 # 🍕 Case Study #2 - Pizza Runner
 <p align="center">
-<img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=50% height=50%>
+<img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/org-2.png" width=40% height=40%>
 
 ## 📕 Table Of Contents
   - 🛠️ [Problem Statement](#problem-statement)
@@ -15,25 +15,29 @@
   - ♻️ [Data Preprocessing](#️-data-preprocessing)
   - 🧙‍♂️ [Case Study Questions](#case-study-questions)
 
+---
+
 ## 🛠️ Problem Statement
 
-Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
+> Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
+> 
+> Danny was sold on the idea, but he knew that pizza alone was not going to help him get seed funding to expand his new Pizza Empire - so he had one more genius idea to combine with it - he was going to Uberize it - and so **Pizza Runner** was launched!
+> 
+> Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
 
-Danny was sold on the idea, but he knew that pizza alone was not going to help him get seed funding to expand his new Pizza Empire - so he had one more genius idea to combine with it - he was going to Uberize it - and so **Pizza Runner** was launched!
-
-Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
+---
 
 ## 📂 Dataset
 Danny has shared with you 6 key datasets for this case study:
 
-* ### **```runners```**
-
-The runners table shows the **```registration_date```** for each new runner.
-
+### **```runners```**
 <details>
 <summary>
 View table
 </summary>
+
+The runners table shows the **```registration_date```** for each new runner.
+
 
 |runner_id|registration_date|
 |---------|-----------------|
@@ -44,16 +48,15 @@ View table
 
 </details>
 
----
 
-* ### **```customer_orders```**
-
-Customer pizza orders are captured in the **```customer_orders```** table with 1 row for each individual pizza that is part of the order.
+### **```customer_orders```**
 
 <details>
 <summary>
 View table
 </summary>
+
+Customer pizza orders are captured in the **```customer_orders```** table with 1 row for each individual pizza that is part of the order.
 
 |order_id|customer_id|pizza_id|exclusions|extras|order_time        |
 |--------|---------|--------|----------|------|------------------|
@@ -74,9 +77,12 @@ View table
 
 </details>
 
----
+### **```runner_orders```**
 
-* ### **```runner_orders```**
+<details>
+<summary>
+View table
+</summary>
 
 After each orders are received through the system - they are assigned to a runner - however not all orders are fully completed and can be cancelled by the restaurant or the customer.
 
@@ -84,10 +90,7 @@ The **```pickup_time```** is the timestamp at which the runner arrives at the Pi
 
 The **```distance```** and **```duration```** fields are related to how far and long the runner had to travel to deliver the order to the respective customer.
 
-<details>
-<summary>
-View table
-</summary>
+
 
 |order_id|runner_id|pickup_time|distance  |duration|cancellation      |
 |--------|---------|-----------|----------|--------|------------------|
@@ -104,9 +107,7 @@ View table
 
 </details>
 
----
-
-* ### **```pizza_names```**
+### **```pizza_names```**
 
 <details>
 <summary>
@@ -120,16 +121,15 @@ View table
 
 </details>
 
----
-
- *  ### **```pizza_recipes```**
-
-Each **```pizza_id```** has a standard set of **```toppings```** which are used as part of the pizza recipe.
+### **```pizza_recipes```**
 
 <details>
 <summary>
 View table
 </summary>
+
+Each **```pizza_id```** has a standard set of **```toppings```** which are used as part of the pizza recipe.
+
 
 |pizza_id|toppings |
 |--------|---------|
@@ -138,16 +138,15 @@ View table
 
 </details>
 
----
-
-  *  ### **```pizza_toppings```**
-
-This table contains all of the **```topping_name```** values with their corresponding **```topping_id```** value.
+### **```pizza_toppings```**
 
 <details>
 <summary>
 View table
 </summary>
+
+This table contains all of the **```topping_name```** values with their corresponding **```topping_id```** value.
+
 
 |topping_id|topping_name|
 |----------|------------|
@@ -166,7 +165,12 @@ View table
 
 </details>
 
+---
+
 ## ♻️ Data Preprocessing
+
+### **Data Issues**
+
 Data issues in the existing schema include:
 
 * **```customer_orders``` table**
@@ -177,7 +181,7 @@ Data issues in the existing schema include:
   - using both ```NaN``` and ```null``` values
   - units manually entered in ```distance``` and ```duration``` columns
 
-### Data Cleaning
+### **Data Cleaning**
 
 **```customer_orders```**
 - Converting ```null``` and ```NaN``` values into blanks ```''``` in ```exclusions``` and ```extras```
@@ -241,6 +245,8 @@ updated_runner_orders
 
 </details>
 
+---
+
 ## 🧙‍♂️ Case Study Questions
 <p align="center">
 <img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
@@ -252,20 +258,206 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 Pizza Metrics
 </summary>
 
-1. How many pizzas were ordered?
-2. How many unique customer orders were made?
-3. How many successful orders were delivered by each runner?
-4. How many of each type of pizza was delivered?
-5. How many Vegetarian and Meatlovers were ordered by each customer?
-6. What was the maximum number of pizzas delivered in a single order?
-7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
-8. How many pizzas were delivered that had both exclusions and extras?
-9. What was the total volume of pizzas ordered for each hour of the day?
-10. What was the volume of orders for each day of the week?
+### **Q1. How many pizzas were ordered?**
+```sql
+SELECT COUNT(*) AS pizza_count
+FROM updated_customer_orders;
+```
+|pizza_count|
+|-----------|
+|14         |
+
+### **Q2. How many unique customer orders were made?**
+```sql
+SELECT COUNT (DISTINCT order_id) AS order_count
+FROM updated_customer_orders;
+```
+|order_count|
+|-----------|
+|10         |
+
+
+### **Q3. How many successful orders were delivered by each runner?**
+```sql
+SELECT
+  runner_id,
+  COUNT(order_id) AS successful_orders
+FROM updated_runner_orders
+WHERE cancellation IS NULL
+OR cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+GROUP BY runner_id
+ORDER BY successful_orders DESC;
+```
+
+| runner_id | successful_orders |
+|-----------|-------------------|
+| 1         | 4                 |
+| 2         | 3                 |
+| 3         | 1                 |
+
+
+### **Q4. How many of each type of pizza was delivered?**
+```SQL
+SELECT
+  pn.pizza_name,
+  COUNT(co.*) AS pizza_type_count
+FROM updated_customer_orders AS co
+INNER JOIN pizza_runner.pizza_names AS pn
+   ON co.pizza_id = pn.pizza_id
+INNER JOIN pizza_runner.runner_orders AS ro
+   ON co.order_id = ro.order_id
+WHERE cancellation IS NULL
+OR cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+GROUP BY pn.pizza_name
+ORDER BY pn.pizza_name;
+```
+
+OR
+
+```SQL
+SELECT
+  pn.pizza_name,
+  COUNT(co.*) AS pizza_type_count
+FROM updated_customer_orders AS co
+INNER JOIN pizza_runner.pizza_names AS pn
+   ON co.pizza_id = pn.pizza_id
+WHERE EXISTS (
+  SELECT 1 FROM updated_runner_orders AS ro
+   WHERE ro.order_id = co.order_id
+   AND (
+    ro.cancellation IS NULL
+    OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+  )
+)
+GROUP BY pn.pizza_name
+ORDER BY pn.pizza_name;
+```
+| pizza_name | pizza_type_count |
+|------------|------------------|
+| Meatlovers | 9                |
+| Vegetarian | 3                |
+
+
+### **Q5. How many Vegetarian and Meatlovers were ordered by each customer?**
+```SQL
+SELECT
+  customer_id,
+  SUM(CASE WHEN pizza_id = 1 THEN 1 ELSE 0 END) AS meat_lovers,
+  SUM(CASE WHEN pizza_id = 2 THEN 1 ELSE 0 END) AS vegetarian
+FROM updated_customer_orders
+GROUP BY customer_id;
+```
+
+| customer_id | meat_lovers | vegetarian |
+|-------------|-------------|------------|
+| 101         | 2           | 1          |
+| 103         | 3           | 1          |
+| 104         | 3           | 0          |
+| 105         | 0           | 1          |
+| 102         | 2           | 1          |
+
+### **Q6. What was the maximum number of pizzas delivered in a single order?**
+```SQL
+SELECT MAX(pizza_count) AS max_count
+FROM (
+  SELECT
+    co.order_id,
+    COUNT(co.pizza_id) AS pizza_count
+  FROM updated_customer_orders AS co
+  INNER JOIN updated_runner_orders AS ro
+    ON co.order_id = ro.order_id
+  WHERE 
+    ro.cancellation IS NULL
+    OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+  GROUP BY co.order_id) AS mycount;
+ ``` 
+
+| max_count |
+|-----------|
+| 3         |
+
+
+### **Q7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?**
+```SQL
+SELECT 
+  co.customer_id,
+  SUM (CASE WHEN co.exclusions IS NOT NULL OR co.extras IS NOT NULL THEN 1 ELSE 0 END) AS changes,
+  SUM (CASE WHEN co.exclusions IS NULL OR co.extras IS NULL THEN 1 ELSE 0 END) AS no_change
+FROM updated_customer_orders AS co
+INNER JOIN updated_runner_orders AS ro
+  ON co.order_id = ro.order_id
+WHERE ro.cancellation IS NULL
+  OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+GROUP BY co.customer_id
+ORDER BY co.customer_id;
+```
+
+| customer_id | changes | no_change |
+|-------------|---------|-----------|
+| 101         | 0       | 2         |
+| 102         | 0       | 3         |
+| 103         | 3       | 3         |
+| 104         | 2       | 2         |
+| 105         | 1       | 1         |
+
+
+### **Q8. How many pizzas were delivered that had both exclusions and extras?**
+```SQL
+SELECT
+  SUM(CASE WHEN co.exclusions IS NOT NULL AND co.extras IS NOT NULL THEN 1 ELSE 0 END) as pizza_count
+FROM updated_customer_orders AS co
+INNER JOIN updated_runner_orders AS ro
+  ON co.order_id = ro.order_id
+WHERE ro.cancellation IS NULL
+  OR ro.cancellation NOT IN ('Restaurant Cancellation', 'Customer Cancellation')
+```  
+
+| pizza_count |
+|-------------|
+| 1           |
+
+
+### **Q9. What was the total volume of pizzas ordered for each hour of the day?**
+```SQL
+SELECT
+  DATE_PART('hour', order_time::TIMESTAMP) AS hour_of_day,
+  COUNT(*) AS pizza_count
+FROM updated_customer_orders
+WHERE order_time IS NOT NULL
+GROUP BY hour_of_day
+ORDER BY hour_of_day;
+```
+
+| hour_of_day | pizza_count |
+|-------------|-------------|
+| 11          | 1           |
+| 12          | 2           |
+| 13          | 3           |
+| 18          | 3           |
+| 19          | 1           |
+| 21          | 3           |
+| 23          | 1           |
+
+### **Q10. What was the volume of orders for each day of the week?**
+```SQL
+SELECT
+  TO_CHAR(order_time, 'Day') AS day_of_week,
+  COUNT(*) AS pizza_count
+FROM updated_customer_orders
+GROUP BY 
+  day_of_week, 
+  DATE_PART('dow', order_time)
+ORDER BY day_of_week;
+```
+
+| day_of_week | pizza_count |
+|-------------|-------------|
+| Friday      | 1           |
+| Saturday    | 5           |
+| Thursday    | 3           |
+| Wednesday   | 5           |
 
 </details>
-
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner/1.%20Pizza%20Metrics)
 
 <details>
 <summary>

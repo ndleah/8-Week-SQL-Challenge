@@ -6,7 +6,7 @@
 
 # 🍜 Case Study #1 - Danny's Diner
 <p align="center">
-<img src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/org-1.png" width=50% height=50%>
+<img src="/IMG/org-1.png" width=40% height=40%>
 
 ## 📕 Table Of Contents
 * 🛠️ [Problem Statement](#problem-statement)
@@ -19,7 +19,7 @@
 
 ## 🛠️ Problem Statement
 
-Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
+> Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
 
  <br /> 
 
@@ -28,7 +28,12 @@ Danny wants to use the data to answer a few simple questions about his customers
 ## 📂 Dataset
 Danny has shared with you 3 key datasets for this case study:
 
-* ### **```sales```**
+### **```sales```**
+
+<details>
+<summary>
+View table
+</summary>
 
 The sales table captures all ```customer_id``` level purchases with an corresponding ```order_date``` and ```product_id``` information for when and what menu items were ordered.
 
@@ -50,9 +55,14 @@ The sales table captures all ```customer_id``` level purchases with an correspon
 |C          |2021-01-01|3         |
 |C          |2021-01-07|3         |
 
- <br /> 
+ </details>
 
-* ### **```menu```**
+### **```menu```**
+
+<details>
+<summary>
+View table
+</summary>
 
 The menu table maps the ```product_id``` to the actual ```product_name``` and price of each menu item.
 
@@ -62,9 +72,14 @@ The menu table maps the ```product_id``` to the actual ```product_name``` and pr
 |2          |curry       |15        |
 |3          |ramen       |12        |
 
- <br /> 
+</details>
 
-* ### **```members```**
+### **```members```**
+
+<details>
+<summary>
+View table
+</summary>
 
 The final members table captures the ```join_date``` when a ```customer_id``` joined the beta version of the Danny’s Diner loyalty program.
 
@@ -73,7 +88,7 @@ The final members table captures the ```join_date``` when a ```customer_id``` jo
 |A          |1/7/2021  |
 |B          |1/9/2021  |
 
- <br /> 
+ </details>
 
 ## 🧙‍♂️ Case Study Questions
 <p align="center">
@@ -106,17 +121,11 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 
-**Result:**
 | customer_id | total_spent |
 | ----------- | ----------- |
 | A           | 76          |
 | B           | 74          |
 | C           | 36          |
-
-**Answer:**
-> * **Customer A** spent **$76**
-> * **Customer B** spent **$74**
-> * **Customer C** spent **$36**
 
 ---
 
@@ -128,17 +137,13 @@ SELECT
 FROM dannys_diner.sales
 GROUP BY customer_id;
 ```
-**Result:**
+
 |customer_id|visited_days|
 |-----------|------------|
 |A          |4           |
 |B          |6           |
 |C          |2           |
 
-**Answer:**
-> * **Customer A** has visited **4 days**
-> * **Customer B** has visited **6 days**
-> * **Customer C** has visited **2 days**
 
 ---
 
@@ -171,12 +176,6 @@ WHERE item_order = 1;
 | B           | curry        | 1          |
 | C           | ramen        | 1          |
 
-**Answer:**
-> First item purchased by:
-> * **Customer A** is **sushi**
-> * **Customer B** is **curry**
-> * **Customer C** is **ramen**
-
 ---
 
 ### **Q4. What is the most purchased item on the menu and how many times was it purchased by all customers?**
@@ -193,14 +192,9 @@ ORDER BY order_count DESC
 LIMIT 1;
 ```
 
-**Result:**
 |product_id|product_name|order_count|
 |----------|------------|-----------|
 |3         |ramen       |8          |
-
-**Answer:**
-
-> Most purchased item was **ramen**, which was ordered **8 times**
 
 ---
 
@@ -231,23 +225,6 @@ cte_popular_rank AS (
 SELECT * FROM cte_popular_rank
 WHERE rank = 1;
 ```
-
-**Result:**
-| customer_id | product_name | order_count | rank |
-| ----------- | ------------ | ----------- | ---- |
-| A           | ramen        | 3           | 1    |
-| B           | ramen        | 2           | 1    |
-| B           | curry        | 2           | 1    |
-| B           | sushi        | 2           | 1    |
-| C           | ramen        | 3           | 1    |
-
-**Answer:**
-> Most popular item for:
-> * **Customer A** was **Ramen** 
-> * **Customer B** was a tie between **all three menu items**
-> * **Customer C** was **ramen**
-
-<br /> 
 
 ---
 
@@ -300,20 +277,10 @@ SELECT * FROM cte_first_after_mem
 WHERE purchase_order = 1;
 ```
 
-**Result:**
 | customer_id | product_name | order_date               | purchase_order |
 | ----------- | ------------ | ------------------------ | -------------- |
 | A           | curry        | 2021-01-07T00:00:00.000Z | 1              |
 | B           | sushi        | 2021-01-11T00:00:00.000Z | 1              |
-
-**Answer:**
-> First product ordered after becoming a member for:
-> * **Customer A** is **curry** 
-> * **Customer B** is **sushi**
-> 
-> (*Customer C is not included in the list since he/she didn't join the membership program*)
-
-<br /> 
 
 ---
 
@@ -337,17 +304,11 @@ SELECT * FROM cte_last_before_mem
 WHERE purchase_order = 1;
 ```
 
-**Result:**
 | customer_id | product_name | order_date               | purchase_order |
 | ----------- | ------------ | ------------------------ | -------------- |
 | A           | sushi        | 2021-01-01T00:00:00.000Z | 1              |
 | A           | curry        | 2021-01-01T00:00:00.000Z | 1              |
 | B           | sushi        | 2021-01-04T00:00:00.000Z | 1              |
-
-**Answer:**
-> Last item purchased before becoming a member for:
-> * **Customer A** was either <ins>**curry**</ins> or <ins>**sushi**</ins>. <span style="color:red"> *Access [here]() to view limitations of this question*</span> 
-> * **Customer B** was **sushi**
 
 ---
 
@@ -370,15 +331,11 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 
-**Result:**
 | customer_id | total_spent | total_items |
 | ----------- | ----------- | ----------- |
 | A           | 25          | 2           |
 | B           | 40          | 3           |
 
-**Answer:**
-* **Customer A** spent **$25** on **2 items** before becoming members
-* **Customer B** spent **$40** on **3 items** before becoming members
 
 ---
 
@@ -397,15 +354,10 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 
-**Result:**
 | customer_id | total_points |
 | ----------- | ------------ |
 | A           | 860          |
 | B           | 940          |
-
-**Answer:**
-* **Customer A** has **860 pts**
-* **Customer B** has **940 pts**
 
 ---
 
@@ -463,7 +415,7 @@ WHERE order_date < '2021-02-01';
 --inspect the table result
 SELECT * FROM membership_first_week_validation;
 ```
-**Result:**
+
 | customer_id | order_date               | product_name | price | order_count | within_first_week |
 | ----------- | ------------------------ | ------------ | ----- | ----------- | ----------------- |
 | A           | 2021-01-01T00:00:00.000Z | curry        | 15    | 1           |                   |
@@ -503,16 +455,11 @@ GROUP BY customer_id;
 SELECT * FROM membership_first_week_points;
 ```
 
-**Result:**
 | customer_id | total_points |
 | ----------- | ------------ |
 | A           | 1020         |
 | B           | 200          |
 
-**Finding**:
-> Total points within the first week of membership program of:
-> * **Customer A** is **1020**
-> * **Customer B** is **200**
 
 ```sql
 --create temp table for points calculation excluded the first week membership (before membership + after the first week membership)
@@ -566,18 +513,10 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 
-**Result:**
 | customer_id | SUM          |
 | ----------- | ------------ |
 | A           | 1370         |
 | B           | 820          |
-
-**Answer:**
-> By the end of January-21:
-> * **Customer A** has **1370 points**
-> * **Customer B** has **820 points**
-
- <br /> 
 
  ## 🐋 Limitations
  
