@@ -28,7 +28,7 @@
 
 ## 🍜 Case Study #1 - Danny's Diner
 <p align="center">
-  <img width=60% height=60%" src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/1.png">
+  <img width=60% height=60%" src="/IMG/1.png">
 
 Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
 
@@ -36,14 +36,14 @@ Danny’s Diner is in need of your assistance to help the restaurant stay afloat
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-1/).
 
-## View the entire solution for this part [**here**](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner) or
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_1-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner)
+
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_1-971901?style=for-the-badge&logo=GITHUB)](/Case%20Study%20%231%20-%20Danny's%20Diner)
 
 ---
 
 ## 🍕 Case Study #2 - Pizza Runner
 <p align="center">
-  <img width=60% height=60%" src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/2.png">
+  <img width=60% height=60%" src="/IMG/2.png">
 
 Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
 
@@ -53,14 +53,14 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-2/).
 
-## View the entire solution for this part [**here**](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner) or
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_2-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner)
+
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_2-971901?style=for-the-badge&logo=GITHUB)](/Case%20Study%20%232%20-%20Pizza%20Runner)
 
 ---
 
 ## 🥑 Case Study #3 - Foodie-Fi
 <p align="center">
-  <img width=60% height=60%" src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/3.png">
+  <img width=60% height=60%" src="/IMG/3.png">
 
 Subscription based businesses are super popular and Danny realised that there was a large gap in the market - he wanted to create a new streaming service that only had food related content - something like Netflix but with only cooking shows!
 
@@ -70,14 +70,13 @@ Danny created Foodie-Fi with a data driven mindset and wanted to ensure all futu
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-3/).
 
-## View the entire solution for this part [**here**](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%233%20-%20Foodie-Fi) or
-[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_3-971901?style=for-the-badge&logo=GITHUB)](https://github.com/ndleah/8-Week-SQL-Challenge/tree/main/Case%20Study%20%233%20-%20Foodie-Fi)
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_3-971901?style=for-the-badge&logo=GITHUB)](/Case%20Study%20%233%20-%20Foodie-Fi)
 
 ---
 
 ## 🪙 Case Study #4 - Data Bank
 <p align="center">
-  <img width=60% height=60%" src="https://github.com/ndleah/8-Week-SQL-Challenge/blob/main/IMG/4.png">
+  <img width=60% height=60%" src="/IMG/4.png">
 
 There is a new innovation in the financial industry called Neo-Banks: new aged digital only banks without physical branches.
 
@@ -91,7 +90,7 @@ This case study is all about calculating metrics, growth and helping the busines
 
 ### View full case study introduction [here](https://8weeksqlchallenge.com/case-study-4/).
 
-## *[UPDATING]*
+[![View Data Exploration Folder](https://img.shields.io/badge/View-Solution_Case_Study_4-971901?style=for-the-badge&logo=GITHUB)](/Case%20Study%20#4%20-%20Data%20Bank)
 
 ---
 
