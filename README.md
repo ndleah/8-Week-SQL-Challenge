@@ -28,7 +28,7 @@
 
 ## 🍜 Case Study #1 - Danny's Diner
 <p align="center">
-  <img width=60% height=60%" src="/IMG/1.png">
+  <img width=50% height=50%" src="/IMG/1.png">
 
 Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
 
@@ -43,7 +43,7 @@ Danny’s Diner is in need of your assistance to help the restaurant stay afloat
 
 ## 🍕 Case Study #2 - Pizza Runner
 <p align="center">
-  <img width=60% height=60%" src="/IMG/2.png">
+  <img width=50% height=50%" src="/IMG/2.png">
 
 Danny was scrolling through his Instagram feed when something really caught his eye - “80s Retro Styling and Pizza Is The Future!”
 
@@ -60,7 +60,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ## 🥑 Case Study #3 - Foodie-Fi
 <p align="center">
-  <img width=60% height=60%" src="/IMG/3.png">
+  <img width=50% height=50%" src="/IMG/3.png">
 
 Subscription based businesses are super popular and Danny realised that there was a large gap in the market - he wanted to create a new streaming service that only had food related content - something like Netflix but with only cooking shows!
 
@@ -76,7 +76,7 @@ Danny created Foodie-Fi with a data driven mindset and wanted to ensure all futu
 
 ## 🪙 Case Study #4 - Data Bank
 <p align="center">
-  <img width=60% height=60%" src="/IMG/4.png">
+  <img width=50% height=50%" src="/IMG/4.png">
 
 There is a new innovation in the financial industry called Neo-Banks: new aged digital only banks without physical branches.
 
