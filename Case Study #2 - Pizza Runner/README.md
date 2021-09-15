@@ -481,15 +481,11 @@ GROUP BY start_of_week
 ORDER BY start_of_week;
 ```
 
-**Result:**
-
 | start_of_week            | signups |
 |--------------------------|---------|
 | 2021-01-01T00:00:00.000Z | 2       |
 | 2021-01-08T00:00:00.000Z | 1       |
 | 2021-01-15T00:00:00.000Z | 1       |
-
----
 
 ### **Q2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?**
 ```SQL
@@ -511,14 +507,11 @@ FROM runner_pickups
 GROUP BY runner_id
 ORDER BY runner_id;
 ```
-**Result:**
 | runner_id | avg_arrival_minutes |
 |-----------|---------------------|
 | 1         | -4                  |
 | 2         | 23                  |
 | 3         | 10                  |
-
----
 
 ### **Q3. Is there any relationship between the number of pizzas and how long the order takes to prepare?**
 ```SQL
@@ -550,15 +543,11 @@ GROUP BY pizzas_order_count
 ORDER BY pizzas_order_count;
 ```
 
-**Result:**
-
 | pizzas_order_count | avg_time        |
 |--------------------|-----------------|
 | 1                  | 12              |
 | 2                  | -6              |
 | 3                  | 29              |
-
----
 
 ### **Q4. What was the average distance travelled for each runner?**
 ```SQL
@@ -570,15 +559,12 @@ GROUP BY runner_id
 ORDER BY runner_id;
 ```
 
-**Result:**
-
 | runner_id | avg_distance |
 |-----------|--------------|
 | 1         | 15.85        |
 | 2         | 23.93        |
 | 3         | 10.00        |
 
----
 ### **Q5. What was the difference between the longest and shortest delivery times for all orders?**
 ```SQL
 SELECT
@@ -586,12 +572,9 @@ SELECT
 FROM updated_runner_orders;
 ```
 
-**Result:**
 | difference |
 |------------|
 | 30         |
-
----
 
 ### **Q6. What was the average speed for each runner for each delivery and do you notice any trend for these values?**
 ```SQL
@@ -619,8 +602,6 @@ WITH order_count AS (
   ORDER BY speed DESC
 ```
 
-**Result:**
-
 | order_id | runner_id | pizzas_count | distance | duration | speed |
 |----------|-----------|--------------|----------|----------|-------|
 | 8        | 2         | 1            | 23.4     | 15       | 93.60 |
@@ -635,7 +616,6 @@ WITH order_count AS (
 **Finding:**
 - **Orders shown in decreasing order of average speed:**
 > *While the fastest order only carried 1 pizza and the slowest order carried 3 pizzas, there is no clear trend that more pizzas slow down the delivery speed of an order.*  
----
 
 ### **Q7. What is the successful delivery percentage for each runner?**
 ```sql
@@ -648,8 +628,6 @@ FROM updated_runner_orders
 GROUP BY runner_id
 ORDER BY runner_id;
 ```
-
-**Result:**
 
 | runner_id | delivered | total | delivery_percent |
 |-----------|-----------|-------|------------------|
