@@ -13,7 +13,7 @@
   - 🛠️ [Problem Statement](#problem-statement)
   - 📂 [Dataset](#dataset)
   - ♻️ [Data Preprocessing](#️-data-preprocessing)
-  - 🧙‍♂️ [Case Study Questions](#case-study-questions)
+  - 🚀 [Solutions](#-solutions)
 
 ---
 
@@ -247,11 +247,7 @@ updated_runner_orders
 
 ---
 
-## 🧙‍♂️ Case Study Questions
-<p align="center">
-<img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
-
-This case study has LOTS of questions - they are broken up by area of focus including:
+## 🚀 Solutions
 
 <details>
 <summary> 
