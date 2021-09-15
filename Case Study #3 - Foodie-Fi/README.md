@@ -94,8 +94,6 @@ In this part, I will display the first 20 rows of this dataset since the origina
 
 
 ## 🧙‍♂️ Case Study Questions
-<p align="center">
-<img src="https://media3.giphy.com/media/JQXKbzdLTQJJKP176X/giphy.gif" width=80% height=80%>
 
 1. How many customers has Foodie-Fi ever had?
 2. What is the monthly distribution of **```trial```** plan **```start_date```** values for our dataset - use the start of the month as the group by value
@@ -284,11 +282,10 @@ SELECT COUNT(DISTINCT customer_id)
 FROM next_plan_cte
 WHERE next_plan=3 AND EXTRACT(YEAR FROM start_date) = '2020';
 ```
-**Results:**
 
-count |
-------
-253
+|count |
+|------|
+|253 |
 
 **Q9. How many days on average does it take for a customer to an annual plan from the day they join Foodie-Fi?**
 ```SQL
@@ -309,9 +306,9 @@ FROM join_date JOIN pro_date
     ON join_date.customer_id = pro_date.customer_id;
 ```
 
-avg_days_to_upgrade |
--------------------|
-104.62
+|avg_days_to_upgrade|
+|-------------------|
+|104.62             |
 
 
 **Q10. Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)**
@@ -337,7 +334,7 @@ FROM bins
 GROUP BY avg_days_to_upgrade
 ORDER BY avg_days_to_upgrade;
 ```
-**Results:**
+
 |  30-day-range  |  count  |
 |----------------|---------|
 | 0-30         | 48      |
@@ -362,10 +359,9 @@ SELECT COUNT(*) AS customers_downgraded
 FROM next_plan_cte
 WHERE plan_id=2 AND next_plan=1;
 ```
+|customers_downgraded|
+|--------------------|
+| 0                  |
 
-**Results:**
-customers_downgraded|
---------------------|
- 0
 ---
 <p>&copy; 2021 Leah Nguyen</p>
