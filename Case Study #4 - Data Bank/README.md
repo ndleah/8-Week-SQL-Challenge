@@ -168,11 +168,8 @@ GROUP BY regions.region_name;
 | "Australia"   | 110               |
 | "Europe"      | 88                |
 
-
-4.
-
 </details>
----
+
 
 ### **B. Customer Transactions**
 
